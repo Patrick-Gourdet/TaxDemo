@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using System.Text;
 using Auth.ApiDataAccess;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace Auth
 {
@@ -104,7 +106,27 @@ namespace Auth
 
             #region Swagger
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(s=>
+            {
+                s.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "API DEMO",
+                    Description = "A basic demo with some compromises api skills demonstration",
+                    TermsOfService = new Uri("https://linkedin.com/patrickgourdet"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Patrick Gourdet",
+                        Email = "patrickgourdet@protonmail.com",
+                        Url = new Uri("https://linkedin.com/patrickgourdet"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+            });
 
             #endregion
 

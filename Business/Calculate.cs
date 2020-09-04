@@ -12,16 +12,17 @@ namespace Auth.Business
         public async Task<TaxCalculationItemEvent> CalculatedTax(Rates item, decimal amount)
         {
           
-            var calculated = Convert.ToDecimal(item.rate.combined_rate) * amount;
+            var calculated = Convert.ToDecimal(item.rate.combined_rate) * amount + 0.00m;
             var calculateAsync = TaskEx.Run( () =>
             {
                 return new TaxCalculationItemEvent()
                 {
+                    TaxId = Guid.NewGuid(),
                     Amount = amount,
-                    CalcId = new Guid(),
+                    CalcId = Guid.NewGuid(),
                     CalculatedAmount = calculated,
                     CreatedDate = DateTime.Now,
-                    Percent = amount
+                    Percent = Convert.ToDecimal(item.rate.combined_rate)
                 };
 
             });

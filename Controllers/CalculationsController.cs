@@ -66,13 +66,13 @@ namespace Auth.Controllers
         }
 
         // GET api/<CalculationsController>/5
-        [HttpGet("rates/{amount}/{zip}/{endpoint}/(user)/{password}")]
-        public async Task<TaxCalculationItemEvent> Get(string amount, string zip,string endpoint,string user, string password)
+        [HttpGet("rates/{amount}/{query}/{apiname}/(user)/{password}")]
+        public async Task<TaxCalculationItemEvent> Get(string amount, string query,string apiname,string user, string password)
         {
             try
             {
                 var hash = Encoding.UTF8.GetBytes(_auth.GetUserHash(user,password).Result);
-                var getRates = await _calcApi.GetOrderTaxRate($"?zip={zip}",endpoint,hash);
+                var getRates = await _calcApi.GetOrderTaxRate(query,apiname,hash);
                 var resultCalculations = await _calc.CalculatedTax(getRates, Convert.ToDecimal(amount));
                 await _db.SaveChanges(resultCalculations);
                 return resultCalculations;
