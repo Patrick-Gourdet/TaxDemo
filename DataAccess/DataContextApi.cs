@@ -1,0 +1,21 @@
+﻿//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Author: Patrick Gourdet 
+/// Company: Iron Finacials LLC
+/// Date: 08/28/2020
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using Auth.Model;
+using Microsoft.EntityFrameworkCore;
+
+
+namespace Auth.DataAccess
+{
+    public class DataContextApi : DbContext
+    {
+        public DataContextApi(DbContextOptions<DataContextApi> options) : base(options) {}
+   
+        public DbSet<ApiDbItem> apiDBItem { get; set; }
+
+    }
+}
+
+       
