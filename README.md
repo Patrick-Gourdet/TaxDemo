@@ -13,6 +13,17 @@
 
 ## Troubleshoot: Delete Docker file and right click project add Docker Support
 
+# Test Calculation Method 
+## Step 1: Register user using swagger
+## Step 2: Save API Key using the credentials created in step 1
+## Step 3: Make call to API entering amount and ZIP code
+
+# Using Unit tests 
+## Run API Docker container 
+## Must alter the user then run test
+## Then add user to unit test 3
+## all expected values should return 201 or 200
+
 ## Contents
 
 - [ApiDbContext](#T-Auth-DataAccess-ApiDbContext 'Auth.DataAccess.ApiDbContext')
