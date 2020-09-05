@@ -102,7 +102,7 @@ namespace Auth
                 {
                     Version = "v1",
                     Title = "API DEMO",
-                    Description = "A basic demo with some compromises api skills demonstration",
+                    Description = "<h1>A basic demo to show api skills demonstration<h1>",
                     TermsOfService = new Uri("https://linkedin.com/patrickgourdet"),
                     Contact = new OpenApiContact
                     {

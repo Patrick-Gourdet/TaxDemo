@@ -13,7 +13,7 @@ namespace Auth.Business
         {
           
             var calculated = Convert.ToDecimal(item.rate.combined_rate) * amount + 0.00m;
-            var calculateAsync = TaskEx.Run( () =>
+            var calculateAsync = Task.Run( () =>
             {
                 return new TaxCalculationItemEvent()
                 {
