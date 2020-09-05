@@ -68,8 +68,6 @@ namespace Auth
                 options => options.UseSqlite(strAuth,
                     mig => mig.MigrationsAssembly( typeof(DataContext).Assembly.FullName))
                 );
-
-
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Calculations DB DB
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,10 +77,6 @@ namespace Auth
                 options => options.UseSqlite(strCalc,
                     mig => mig.MigrationsAssembly(typeof(DataContextCalc).Assembly.FullName))
                 );
-
-         
-
-
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Tax DB
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,8 +85,6 @@ namespace Auth
                 options => options.UseSqlite(strTax, 
                     mig => mig.MigrationsAssembly(typeof(DataContextTax).Assembly.FullName))
                 );
-
-            
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // API DB
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,8 +93,6 @@ namespace Auth
                 options => options.UseSqlite(strApi, 
                     mig => mig.MigrationsAssembly(typeof(DataContextApi).Assembly.FullName))
             );
-
-
 
             #region Swagger
 
