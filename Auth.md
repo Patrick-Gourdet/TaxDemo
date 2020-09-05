@@ -1,5 +1,17 @@
 <a name='assembly'></a>
 # Auth
+![Patricks github stats](https://github-readme-stats.vercel.app/api?username=patrick-gourdet&count_private=true)
+## This docker container has unit tests as well as API interaction using swagger 
+<img src="./auth.png"/>
+# The Service containes user authentication authenticated API key DB insert and Calculation calls
+# as well as other features
+[![Build Status](https://img.shields.io/badge/Development-build-green)](https://fedigital.org)</br>
+
+## To run project clone then open in Visual Studios 
+## Download and install Docker-Desktop
+## Execute in VisualStudios Using the docker file
+
+## Troubleshoot: Delete Docker file and right click project add Docker Support
 
 ## Contents
 
