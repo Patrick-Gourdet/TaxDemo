@@ -33,7 +33,8 @@ namespace Auth.Controllers
         private readonly IConfiguration _config;
         private readonly ILogger<AuthController> _logger;
         /// <summary>
-        /// Cunstructor using IoC for logging the repo tied to the Auth methods 
+        /// Constructor using IoC allowing the controller access to
+        /// logging the repo tied to the Auth methods 
         /// and configuration methods from start
         /// </summary>
         /// <param name="repo"></param>
@@ -64,8 +65,8 @@ namespace Auth.Controllers
             return StatusCode(201);
         }
         /// <summary>
-        /// To see if a user exsists befor attempting authorization process
-        /// providing a layer of abstration for brutforce attacks
+        /// To see if a user exists before attempting authorization process
+        /// providing a layer of protection against brute force attacks
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
@@ -76,6 +77,7 @@ namespace Auth.Controllers
         }
         /// <summary>
         /// Standard login method using jwt tokens
+        ///  [HttpPost("login")]
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
@@ -129,8 +131,11 @@ namespace Auth.Controllers
 
             #endregion
         }
-        /// Test Hash 8743b52063cd84097a65d1633f5c74f5
+
         /// <summary>
+        /// Test Hash 8743b52063cd84097a65d1633f5c74f5
+        ///  [HttpPost("new-apikey/{apikey}/{apiName}/{user}/{password}")]
+        /// A hash created to test string to byte conversion
         /// Add API Key To the api keys for a specific user
         /// eliminating the authorization as the assigning of api keys
         /// will be the authorization

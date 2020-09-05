@@ -62,6 +62,12 @@ namespace Auth.ApiDataAccess
             }
         }
 
+        /// <summary>
+        /// TODO Dynamic tax info retrieval
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public Task GetTaxInfo(Rates action)
         {
             throw new NotImplementedException();

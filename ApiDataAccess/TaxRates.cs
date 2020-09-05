@@ -13,16 +13,17 @@ using TaxJar.Microservice.DataAccess.ApiHelper;
 namespace Auth.ApiDataAccess
 {
     /// <summary>
-    /// The general Tax Rate retrieval
+    ///  Tax Rate retrieval
     /// Access the APIDb directly
     /// TODO In Future the API DB access should call class an not access the DB directly 
     /// </summary>
     public class TaxRates : ITaxRates
     {
-        // Base url 
+        /// Base url 
         private const string _base = "https://api.taxjar.com/v2/";
-        public readonly DataContextApi _context;
-        public readonly DataContextTax _contextTax;
+
+        private readonly DataContextApi _context;
+        private readonly DataContextTax _contextTax;
 
 
         /// <summary>
@@ -35,8 +36,13 @@ namespace Auth.ApiDataAccess
             _contextTax = dataContextTax;
         }
 
-        //https://api.taxjar.com/v2/rates/90404-3370
-        /// <inheritdoc />
+        /// <summary>
+        /// Get Tax Rates for a query
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="apiName"></param>
+        /// <param name="userHash"></param>
+        /// <returns></returns>
         public async Task<Rates> GetOrderTaxRate(string query, string apiName, byte[] userHash)
         {
             try
@@ -67,13 +73,13 @@ namespace Auth.ApiDataAccess
             }
             catch (Exception e)
             {
-                throw e;
+                throw;
             }
 
         }
 
         /// <summary>
-        /// This will resolve any requests to the Database on the stored rates regions types
+        /// TODO resolve any requests to the Database on the stored rates regions types
         /// </summary>
         /// <param name="action"></param>
         /// <returns></returns>

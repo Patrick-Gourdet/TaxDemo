@@ -15,6 +15,9 @@ using TaxJar.Microservice.DataAccess;
 
 namespace Auth.Controllers
 {
+    /// <summary>
+    ///   [Route("api/[controller]")]
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class TaxRatesController : ControllerBase
@@ -40,6 +43,7 @@ namespace Auth.Controllers
         /// This api takes the query string the api endpoint and the user
         /// hash obtained from the password to retrieve the API Key to make
         /// the desired request.
+        /// [HttpGet("query/{endpoint}/{query}/{apiName}/{authorized}")]
         /// </summary>
         /// <param name="query"></param>
         /// <param name="apiName"></param>

@@ -15,6 +15,7 @@ namespace Auth.Controllers
 {
     /// <summary>
     /// Calculator controller
+    /// api/[controller]
     /// gives access to the calculated DB
     /// and the function to calculate the rates for an order
     /// </summary>
@@ -44,7 +45,15 @@ namespace Auth.Controllers
             _calc = calc;
         }
 
-        // GET api/<CalculationsController>/5
+        /// <summary>
+        /// GET api/<CalculationsController>/5
+        /// taxjar/{amount}/{zip}/(user)/{password}
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <param name="zip"></param>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpGet("taxjar/{amount}/{zip}/(user)/{password}")]
         public async Task<TaxCalculationItemEvent> Get(decimal amount, string zip,string user, string password)
         {
@@ -65,7 +74,16 @@ namespace Auth.Controllers
 
         }
 
-        // GET api/<CalculationsController>/5
+        /// <summary>
+        /// Access to assign API keys to Employees on a no Trust Basis
+        /// rates/{amount}/{query}/{apiname}/(user)/{password}
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <param name="query"></param>
+        /// <param name="apiname"></param>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpGet("rates/{amount}/{query}/{apiname}/(user)/{password}")]
         public async Task<TaxCalculationItemEvent> Get(string amount, string query,string apiname,string user, string password)
         {

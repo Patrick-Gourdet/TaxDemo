@@ -1,4 +1,5 @@
 <a name='assembly'></a>
+### Documentation has index for lookup should a need arise...
 # Auth
 ![Patricks github stats](https://github-readme-stats.vercel.app/api?username=patrick-gourdet&count_private=true)
 ## This docker container has unit tests as well as API interaction using swagger 

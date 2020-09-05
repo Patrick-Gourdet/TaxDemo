@@ -5,10 +5,16 @@ using Auth.Model;
 namespace Auth.Business
 {
     /// <summary>
-    /// Calculate the tax for a given api call to taxjar using the combined tax rate
+    /// Calculate the tax for an order using taxjar 
     /// </summary>
     public class Calculate : ICalculate
     {
+        /// <summary>
+        /// This method uses the (combined tax rate) field from TaxJar 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
         public async Task<TaxCalculationItemEvent> CalculatedTax(Rates item, decimal amount)
         {
           
