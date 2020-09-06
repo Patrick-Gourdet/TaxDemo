@@ -40,6 +40,10 @@
   - [GetTaxItem()](#M-Auth-DataAccess-TaxServiceDbContext-GetTaxItem 'Auth.DataAccess.TaxServiceDbContext.GetTaxItem')
   - [GetTaxItems()](#M-Auth-DataAccess-TaxServiceDbContext-GetTaxItems 'Auth.DataAccess.TaxServiceDbContext.GetTaxItems')
   - [SaveChanges()](#M-Auth-DataAccess-TaxServiceDbContext-SaveChanges-Auth-Model-Rates- 'Auth.DataAccess.TaxServiceDbContext.SaveChanges(Auth.Model.Rates)')
+ 
+# Authorization Levels Variable
+### Auth Level is a row of prime numbers 
+-[AuthLevel](#T-Auth-Model-AuthLevel 'Auth.Model.AuthLevel')
 
 # Controller Documentation 
 -[AuthContext](#T-Auth-DataAccess-AuthContext 'Auth.DataAccess.AuthContext')
@@ -117,7 +121,6 @@
 - [ITax](#T-Auth-ApiDataAccess-ITax`1 'Auth.ApiDataAccess.ITax`1')
 
 
--[AuthLevel](#T-Auth-Model-AuthLevel 'Auth.Model.AuthLevel')
 <a name='T-Auth-DataAccess-ApiDbContext'></a>
 ## ApiDbContext `type`
 
