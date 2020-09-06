@@ -12,7 +12,6 @@ namespace Auth.DataAccess
     {
         public DataContextTax(DbContextOptions<DataContextTax> options) : base(options) {}
         public DbSet<TaxItemEvent> taxItem { get; set; }
-        public DbSet<Rates> rates { get; set; }
-        public DbSet<SummayRates> summaryRate { get; set; }
+        public DbSet<RatesRate> rates { get; set; }
     }
 }

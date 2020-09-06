@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -22,22 +23,27 @@ namespace Auth.Controllers
     [ApiController]
     public class TaxRatesController : ControllerBase
     {
-        ITaxRates tax;
+        private const string apiName = "taxjar";
+        ITaxRates _tax;
         private ITaxServiceDbContext _db;
-        private IApiDbContext _dbApi;
         private IAuthContext _auth;
+
         private ILogger<TaxRatesController> _logger;
         /// <summary>
         /// Access To the TaxJar API 
         /// </summary>
         /// <param name="t"></param>
-        public TaxRatesController(IAuthContext auth,ITaxRates t, ITaxServiceDbContext db,IApiDbContext dbApi, ILogger<TaxRatesController> tc)
+        public TaxRatesController(
+            IAuthContext auth,
+            ITaxRates t, 
+            ITaxServiceDbContext db, 
+            ILogger<TaxRatesController> tc
+            )
         {
-            tax = t;
-            _db = db;
-            _dbApi = dbApi;
-            _logger = tc;
+            _tax = t;
             _auth = auth;
+            _db = db;
+            _logger = tc;
         }
         /// <summary>
         /// This api takes the query string the api endpoint and the user
@@ -46,21 +52,49 @@ namespace Auth.Controllers
         /// [HttpGet("query/{endpoint}/{query}/{apiName}/{authorized}")]
         /// </summary>
         /// <param name="query"></param>
-        /// <param name="apiName"></param>
-        /// <param name="authorized"></param>
+        /// <param name="zip"></param>
         /// <returns></returns>
-        [HttpGet("query/{endpoint}/{query}/{apiName}/{authorized}")]
-        public async Task<Rates> GetTaxInfo(string endpoint,string query,string apiName,string authorized= "")
+        [HttpGet("query/{zip}/{state}/{user}/{password}")]
+        public async Task<RatesRate> GetTaxInfo(string zip,string state,string user,string password= "")
         {
             try
             {
-                var hash = Encoding.UTF8.GetBytes(authorized);
-                var res = await tax.GetOrderTaxRate($"{endpoint}/{query}",apiName,hash);
-                return res;
+                
+                var hash = Encoding.UTF8.GetBytes(
+                    _auth.GetUserHash(user,password).Result
+                );
+                var getRates = await _tax.GetOrderTaxRate($"rates?zip={zip}&state={state}",apiName,hash);
+                await _db.SaveChanges(getRates);
+                return getRates;
             }
             catch (Exception e)
             {
-                _logger.LogError("Error in Taxrate Call",e);
+                _logger.LogError("Error in Tax rate Call",e);
+                throw new Exception("Error in GetTaxInfo",e);
+            }
+
+        }
+        [HttpGet("query/{query}/{user}/{password}")]
+        public async Task<RatesRate> GetTaxInfoQuery(string query,string user,string password= "")
+        {
+            try
+            {
+                var hash = Encoding.UTF8.GetBytes(
+                    _auth.GetUserHash(user,password).Result
+                );
+                if (!query.Contains('-') || !query.Contains('?'))
+                {
+                    int.TryParse(query, out int result);
+                    if (result == 0)
+                        throw new InvalidDataException("Malformed query string");
+                }
+                var getRates = await _tax.GetOrderTaxRate($"rates/{query}",apiName,hash);
+                await _db.SaveChanges(getRates);
+                return getRates;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Error in Tax rate Call",e);
                 throw new Exception("Error in GetTaxInfo",e);
             }
 

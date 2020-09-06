@@ -43,17 +43,14 @@ namespace Auth.ApiDataAccess
         /// <param name="apiName"></param>
         /// <param name="userHash"></param>
         /// <returns></returns>
-        public async Task<Rates> GetOrderTaxRate(string query, string apiName, byte[] userHash)
+        public async Task<RatesRate> GetOrderTaxRate(string query, string apiName, byte[] userHash)
         {
             try
             {
-                if (!query.Contains('?') && !query.Contains('-'))
-                    throw new InvalidDataException("Malformed query string");
-
                 IApiDbContext apiAcess = new ApiDbContext(_context);
                 ITaxServiceDbContext taxAcess = new TaxServiceDbContext(_contextTax);
                 var apiKey = await apiAcess.GetApiKey(apiName, userHash);
-
+                var single = HttpClientSingleton.TaxClient;
                 // call to HttpSingleton Class to set requiered headers 
                 HttpClientSingleton.SetHeaders("Authorization", $"Bearer {apiKey}");
                 HttpClientSingleton.SetHeadersAccept("application/json");
@@ -62,13 +59,11 @@ namespace Auth.ApiDataAccess
                 var queryString = string.Concat(_base, query);
 
                 var receiveStream = await HttpClientSingleton.TaxClient.GetStreamAsync(queryString);
-                HttpClientSingleton.TaxClient.Dispose();
-
                 using var readStream = new StreamReader(receiveStream, Encoding.UTF8);
                 var res = await readStream.ReadToEndAsync();
-                var taxItem = JsonConvert.DeserializeObject<Rates>(res);
+                var taxItem = JsonConvert.DeserializeObject<RatesRate>(res);
                 await taxAcess.SaveChanges(taxItem);
-
+                HttpClientSingleton.TaxClient.Dispose();
                 return taxItem;
             }
             catch (Exception e)
@@ -84,7 +79,7 @@ namespace Auth.ApiDataAccess
         /// <param name="action"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task GetTaxInfo(Rates action)
+        public Task GetTaxInfo(RatesRate action)
         {
             throw new NotImplementedException();
         }

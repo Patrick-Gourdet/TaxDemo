@@ -9,6 +9,6 @@ namespace Auth.Business
     /// </summary>
     public interface ICalculate
     {
-        Task<TaxCalculationItemEvent>  CalculatedTax(Rates item,decimal amount);
+        Task<TaxCalculationItemEvent>  CalculatedTax(RatesRate item,decimal amount);
     }
 }

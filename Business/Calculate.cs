@@ -15,7 +15,7 @@ namespace Auth.Business
         /// <param name="item"></param>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public async Task<TaxCalculationItemEvent> CalculatedTax(Rates item, decimal amount)
+        public async Task<TaxCalculationItemEvent> CalculatedTax(RatesRate item, decimal amount)
         {
           
             var calculated = Convert.ToDecimal(item.rate.combined_rate) * amount + 0.00m;

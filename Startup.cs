@@ -137,7 +137,7 @@ namespace Auth
                 });
             services.AddScoped<ICalculate, Calculate>();
             services.AddScoped<ICalcRates, CalcRates>();
-
+            services.AddScoped<ITaxRates, TaxRates>();
             services.AddScoped<ITaxServiceDbContext, TaxServiceDbContext>();
             services.AddScoped<ICalculateDbContext,CalculatorDbContext>();
             services.AddScoped<IAuthContext,AuthContext>();

@@ -54,7 +54,7 @@ namespace Auth.Controllers
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        [HttpGet("taxjar/{amount}/{zip}/(user)/{password}")]
+        [HttpGet("taxjar/{amount}/{zip}/{user}/{password}")]
         public async Task<TaxCalculationItemEvent> Get(decimal amount, string zip,string user, string password)
         {
             try
@@ -84,7 +84,7 @@ namespace Auth.Controllers
         /// <param name="user"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        [HttpGet("rates/{amount}/{query}/{apiname}/(user)/{password}")]
+        [HttpGet("rates/{amount}/{query}/{apiname}/{user}/{password}")]
         public async Task<TaxCalculationItemEvent> Get(string amount, string query,string apiname,string user, string password)
         {
             try

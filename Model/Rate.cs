@@ -2,16 +2,34 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auth.Model
 {
+    
+    /// <summary>
+    /// Rates is the wrapper for the rate class so that JSON can serialize and deserialize
+    /// </summary>
+    public class RatesRate
+    {
+        [Key]
+        public Guid id { get; set; }
+         [ForeignKey("SubRateId")]
+        public SubRate rate { get; set; }
+    }
     /// <summary>
     /// The rate is the main object at this point
     /// this will carry oll the information needed
     /// </summary>
-    public class rate
-    {
     
+    public class SubRate
+    {
+       
+        public Guid id { get; set; }
+
+        [Key]
+        public Guid rate_id { get; set; }
         public string city { get; set; } 
         public string city_rate { get; set; } 
         public string combined_district_rate { get; set; } 
@@ -22,18 +40,9 @@ namespace Auth.Model
         public string county_rate { get; set; } 
         public bool freight_taxable { get; set; } 
         public string state { get; set; } 
-        public string state_rate { get; set; } 
-        [Key]
+        public string state_rate { get; set; }
         public string zip { get; set; } 
     }
 
-    /// <summary>
-    /// Rates is the wrapper for the rate class so that JSON can serialize and deserialize
-    /// </summary>
-    public class Rates
-    {
-        [Key] public Guid id { get; set; }
-        public rate rate { get; set; }
-    }
     
 }

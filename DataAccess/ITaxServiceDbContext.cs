@@ -10,7 +10,7 @@ namespace Auth.DataAccess
     public interface ITaxServiceDbContext 
     {
         Task<string> GetTaxItem();
-        Task<int> SaveChanges(Rates newRate);
+        Task<int> SaveChanges(RatesRate newRateRate);
         Task<IEnumerable<string>> GetTaxItems();
         Task Correction(string id);
 

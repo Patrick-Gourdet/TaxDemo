@@ -22,11 +22,13 @@ namespace Auth.DataAccess
         /// Save changes to the Tax Item Db
         /// </summary>
         /// <returns></returns>
-        public async Task<int> SaveChanges(Rates newRate)
+        public async Task<int> SaveChanges(RatesRate newRateRate)
         {
-            var rate = new Rates();
-            rate = newRate as Rates;
-            _context.rates.AddAsync(rate,new CancellationToken());
+            var rate = new RatesRate();
+            rate = newRateRate as RatesRate;
+            rate.id = Guid.NewGuid();
+            
+            await _context.rates.AddAsync(rate,new CancellationToken());
             return await _context.SaveChangesAsync();
         }
 

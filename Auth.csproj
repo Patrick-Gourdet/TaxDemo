@@ -45,5 +45,11 @@
 	  <File Include=".\CalcDbLite.db" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="TaxAPITest">
+      <HintPath>..\TaxAPITest\bin\Debug\netcoreapp3.1\TaxAPITest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 
 </Project>

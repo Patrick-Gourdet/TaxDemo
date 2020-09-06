@@ -28,7 +28,7 @@ namespace Auth.ApiDataAccess
 
         //https://api.taxjar.com/v2/rates/90404-3370
         /// <inheritdoc />
-        public async Task<Rates> GetOrderTaxRate(string query, string apiName, byte[] userHash)
+        public async Task<RatesRate> GetOrderTaxRate(string query, string apiName, byte[] userHash)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace Auth.ApiDataAccess
 
                 using var readStream = new StreamReader(receiveStream, Encoding.UTF8);
                 var res = await readStream.ReadToEndAsync();
-                var taxItem = JsonConvert.DeserializeObject<Rates>(res);
+                var taxItem = JsonConvert.DeserializeObject<RatesRate>(res);
 
 
                 return taxItem;
@@ -68,7 +68,7 @@ namespace Auth.ApiDataAccess
         /// <param name="action"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task GetTaxInfo(Rates action)
+        public Task GetTaxInfo(RatesRate action)
         {
             throw new NotImplementedException();
         }
