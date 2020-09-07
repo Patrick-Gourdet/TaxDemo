@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TaxAPITest": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
