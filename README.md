@@ -1,6 +1,6 @@
 <a name='assembly'></a>
 :octocat:
-# The tax calculated may not be accurate as it uses the combined tax field and does not have access to the nexus 
+# The tax calculated may not be accurate as it uses the combined tax and does not have access to the nexus 
 ### Possibly could build a database with all the state to state regulations to create the Nexus lookup table.
 ### Documentation has index for lookup should a need arise...
 # Auth
