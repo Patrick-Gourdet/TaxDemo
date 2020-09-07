@@ -27,7 +27,8 @@
 ## Test Tax rates endpoint will return the values for given zip code
 ## Enter password and the user 
 ## The Endpoint right above in swagger is geared towards more complicated queries but the API key does not allow thus is not tested
-# Using Unit tests 
+
+# Using Unit tests they are lovated togethre with the project on the test branch
 ## Run API Docker container 
 ## Must alter the user then run the test
 ## Then add a user to unit test 3
