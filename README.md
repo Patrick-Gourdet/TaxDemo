@@ -1,11 +1,13 @@
 <a name='assembly'></a>
 :octocat:
+# The tax calculated may not be accurate as it uses the combined tax field and does not have access to the nexus 
+### Possibly could build a database with all the state to state regulations to create the Nexus lookup table.
 ### Documentation has index for lookup should a need arise...
 # Auth
 ![Patricks github stats](https://github-readme-stats.vercel.app/api?username=patrick-gourdet&count_private=true)
-## This docker container has unit tests as well as API interaction using swagger, data storage is hndeled using Encrypted SQLite
+## This docker container has unit tests as well as API interaction using swagger, data storage is handled using Encrypted SQLite
 <img src="./auth.png"/>
-# The Service containes user authentication authenticated API key DB insert and Calculation calls
+# The Service contains user authentication authenticated API key DB insert and Calculation calls
 # as well as other features
 [![Build Status](https://img.shields.io/badge/Development-build-green)](https://fedigital.org)</br>
 
@@ -13,17 +15,20 @@
 ## Download and install Docker-Desktop
 ## Execute in VisualStudios Using the docker file
 
-## Troubleshoot: Delete Docker file and right click project add Docker Support
+## Troubleshoot: Delete Docker file and right-click project add Docker Support
 
 # Test Calculation Method 
 ## Step 1: Register user using swagger
 ## Step 2: Save API Key using the credentials created in step 1
 ## Step 3: Make call to API entering amount and ZIP code
 
+## Test Tax rates endpoint will return the values for given zip code
+## Enter password and the user 
+## The Endpoint right above in swagger is geared towards more complicated queries but the API key does not allow thus is not tested
 # Using Unit tests 
 ## Run API Docker container 
-## Must alter the user then run test
-## Then add user to unit test 3
+## Must alter the user then run the test
+## Then add a user to unit test 3
 ## all expected values should return 201 or 200
 
 ## Contents
@@ -138,7 +143,7 @@ This maps the user to each API key which the user is authorized to use
 
 ##### Summary
 
-Inject context this is how the base implementation should be throught the
+Inject context this is how the base implementation should be through the
 application as to abstract the access to Database
 
 ##### Parameters
@@ -212,7 +217,7 @@ Auth.DataAccess
 
 ##### Summary
 
-Get User Hash for api key authorization
+Get User Hash for api key authorization.
 
 ##### Returns
 
@@ -266,7 +271,7 @@ TODO still need proper thought
 
 ##### Summary
 
-Find if the user is in Database
+Find if the user is in Database.
 
 ##### Returns
 
@@ -294,7 +299,7 @@ Authentication API Access for Gateway authentication method
 
 ##### Summary
 
-Cunstructor using IoC for logging the repo tied to the Auth methods 
+Constructor using IoC for logging the repo tied to the Auth methods 
 and configuration methods from start
 
 ##### Parameters
@@ -365,8 +370,8 @@ will be the authorization
 
 ##### Summary
 
-To see if a user exsists befor attempting authorization process
-providing a layer of abstration for brutforce attacks
+To see if a user exists before attempting the authorization process
+providing a layer of abstraction for brute force attacks
 
 ##### Returns
 
@@ -596,7 +601,7 @@ This method has no parameters.
 
 ##### Summary
 
-Remove header needed for authentication calls this is mainly for security reasons
+Remove header needed for authentication calls. This is mainly for security reasons.
 
 ##### Parameters
 
@@ -609,7 +614,7 @@ Remove header needed for authentication calls this is mainly for security reason
 
 ##### Summary
 
-Remove header function override to accomodate the same format as the set header function set
+Remove header function override to accommodate the same format as the set header function set
 
 ##### Parameters
 
@@ -625,7 +630,7 @@ Remove header function override to accomodate the same format as the set header 
 
 ##### Summary
 
-Remove header overload function
+Remove header overload function.
 
 ##### Parameters
 
@@ -639,7 +644,7 @@ Remove header overload function
 
 ##### Summary
 
-Remove header overload function
+Remove header overload function.
 
 ##### Parameters
 
@@ -712,7 +717,7 @@ Auth.Extention
 
 ##### Summary
 
-Extenstion method  fir the Http response to return the error messages
+The extenstion method  for the Http response to return the error messages.
 
 <a name='T-Auth-DataAccess-IApiDbContext'></a>
 ## IApiDbContext `type`
