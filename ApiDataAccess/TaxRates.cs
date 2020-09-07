@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Auth.DataAccess;
+using Auth.DataAccess.Contexts;
+using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
-using TaxJar.Microservice.DataAccess;
 using TaxJar.Microservice.DataAccess.ApiHelper;
 
 namespace Auth.ApiDataAccess
@@ -68,7 +67,7 @@ namespace Auth.ApiDataAccess
             }
             catch (Exception e)
             {
-                throw;
+                throw e;
             }
 
         }

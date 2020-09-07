@@ -1,8 +1,12 @@
 using System;
+using System.IO;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using Auth.ApiDataAccess;
 using Auth.Business;
+using Auth.DataAccess.Contexts;
+using Auth.DataAccess.InterfaceContexts;
 using Auth.DataAccess;
 using Auth.Extention;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -116,6 +120,9 @@ namespace Auth
                         Url = new Uri("https://example.com/license"),
                     }
                 });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                s.IncludeXmlComments(xmlPath);
             });
 
             #endregion

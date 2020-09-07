@@ -1,8 +1,7 @@
-﻿
-using Auth.Model;
+﻿using Auth.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess
+namespace Auth.DataAccess.Contexts
 {
     /// <summary>
     /// This is the TaxJar interaction interface

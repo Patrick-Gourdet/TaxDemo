@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Auth.DataAccess.Contexts;
+using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
+using Microsoft.EntityFrameworkCore;
 using TaxJar.Microservice.DataAccess;
 
 namespace Auth.DataAccess
@@ -49,10 +53,11 @@ namespace Auth.DataAccess
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task<IEnumerable<string>> GetTaxItems()
+        public async Task<List<RatesRate>> GetTaxItems()
         {
-            throw new NotImplementedException();
+            return await _context.rates.ToListAsync();
         }
+        
 
         /// <summary>
         /// This allows for correction of faulty data TODO needs to be implemented
@@ -63,6 +68,14 @@ namespace Auth.DataAccess
         public Task Correction(string id)
         {
             throw new NotImplementedException();
+        }
+        /// <summary>
+        /// Get all calculated items 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<RatesRate>> GetQueriedTaxByFrequency()
+        {
+            return await _context.rates.Where(  tax => Convert.ToDecimal(tax.rate.combined_rate) > 0.03m).ToListAsync();
         }
     }
 }

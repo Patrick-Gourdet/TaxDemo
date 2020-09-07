@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Auth.Model;
 
-namespace Auth.DataAccess
+namespace Auth.DataAccess.InterfaceContexts
 {
     /// <summary>
     /// Calculator class interface
@@ -9,5 +10,6 @@ namespace Auth.DataAccess
     public interface ICalculateDbContext
     {
         Task<int> SaveChanges(TaxCalculationItemEvent item);
+        Task<List<TaxCalculationItemEvent>> GetCalculations();
     }
 }

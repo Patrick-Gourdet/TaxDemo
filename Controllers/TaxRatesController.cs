@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using Auth.ApiDataAccess;
-using Auth.DataAccess;
+using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -17,7 +15,7 @@ using TaxJar.Microservice.DataAccess;
 namespace Auth.Controllers
 {
     /// <summary>
-    ///   [Route("api/[controller]")]
+    ///   Auth
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
@@ -46,10 +44,7 @@ namespace Auth.Controllers
             _logger = tc;
         }
         /// <summary>
-        /// This api takes the query string the api endpoint and the user
         /// hash obtained from the password to retrieve the API Key to make
-        /// the desired request.
-        /// [HttpGet("query/{endpoint}/{query}/{apiName}/{authorized}")]
         /// </summary>
         /// <param name="query"></param>
         /// <param name="zip"></param>
@@ -74,6 +69,13 @@ namespace Auth.Controllers
             }
 
         }
+        /// <summary>
+        /// Get Tax info for region of interest
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpGet("query/{query}/{user}/{password}")]
         public async Task<RatesRate> GetTaxInfoQuery(string query,string user,string password= "")
         {
@@ -96,6 +98,49 @@ namespace Auth.Controllers
             {
                 _logger.LogError("Error in Tax rate Call",e);
                 throw new Exception("Error in GetTaxInfo",e);
+            }
+
+        }
+        /// <summary>
+        /// Retuen all rates
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        [HttpGet("all-calculations/{user}/{password}")]
+        public async Task<IActionResult> Get(string user, string password)
+        {
+            try
+            {
+                var hash = Encoding.UTF8.GetBytes(_auth.GetUserHash(user,password).Result);
+                var res = await _db.GetQueriedTaxByFrequency();
+                return (IActionResult) res;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error in Calculation end point endpoint", e);
+            }
+
+        }
+        /// <summary>
+        /// Retuen all rates above x from the database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        [HttpGet("all-tax-Above/{user}/{password}/{amount}")]
+        public async Task<IActionResult> GetQueriedTaxByFrequency(string user, string password,decimal input )
+        {
+            try
+            {
+                var hash = Encoding.UTF8.GetBytes(_auth.GetUserHash(user,password).Result);
+                if(hash.Length == 0) throw new AuthenticationException("Not Authorized");
+                var res = await _db.GetQueriedTaxByFrequency();
+                return Ok(res);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error in Calculation end point endpoint", e);
             }
 
         }

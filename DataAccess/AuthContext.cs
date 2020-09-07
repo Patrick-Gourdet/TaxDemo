@@ -4,12 +4,15 @@
 /// Company: Iron Finacials LLC
 /// Date: 08/28/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-using Auth.Model;
-using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Auth.DataAccess.Contexts;
+using Auth.DataAccess.InterfaceContexts;
+using Auth.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auth.DataAccess
 {

@@ -3,8 +3,15 @@
 /// Company: Iron Finacials LLC
 /// Date: 09/03/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Auth.DataAccess.Contexts;
+using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auth.DataAccess
 {
@@ -31,6 +38,11 @@ namespace Auth.DataAccess
             _context.taxCalcItem.Add(item);
             return await _context.SaveChangesAsync();
             
+        }
+        public async Task<List<TaxCalculationItemEvent>> GetCalculations()
+        {
+            return await _context.taxCalcItem.ToListAsync();
+
         }
     }
 }

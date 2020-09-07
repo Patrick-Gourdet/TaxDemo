@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Auth.Model;
 
-namespace Auth.DataAccess
+namespace Auth.DataAccess.InterfaceContexts
 {
     /// <summary>
     /// The tax item is the configuration of Ibase Context
@@ -11,8 +11,9 @@ namespace Auth.DataAccess
     {
         Task<string> GetTaxItem();
         Task<int> SaveChanges(RatesRate newRateRate);
-        Task<IEnumerable<string>> GetTaxItems();
+        Task<List<RatesRate>> GetTaxItems();
         Task Correction(string id);
+        Task<List<RatesRate>> GetQueriedTaxByFrequency();
 
     }
 }

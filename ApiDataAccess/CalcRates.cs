@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Auth.DataAccess;
+using Auth.DataAccess.Contexts;
 using Auth.Model;
 using Newtonsoft.Json;
 using TaxJar.Microservice.DataAccess.ApiHelper;

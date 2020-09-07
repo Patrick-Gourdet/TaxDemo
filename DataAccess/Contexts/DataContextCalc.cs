@@ -3,10 +3,11 @@
 /// Company: Iron Finacials LLC
 /// Date: 09/03/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 using Auth.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess
+namespace Auth.DataAccess.Contexts
 {
     /// <summary>
     /// Calculator Interface implements Save To Sqlite DB

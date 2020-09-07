@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Auth.Model;
 
-namespace Auth.DataAccess
+namespace Auth.DataAccess.InterfaceContexts
 {
     /// <summary>
     /// Api Context for access and storage of the

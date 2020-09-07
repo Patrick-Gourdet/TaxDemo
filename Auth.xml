@@ -9,7 +9,7 @@
             Main calculation method for all tax calculations 
             </summary>
         </member>
-        <member name="M:Auth.ApiDataAccess.CalcRates.#ctor(Auth.DataAccess.DataContextApi)">
+        <member name="M:Auth.ApiDataAccess.CalcRates.#ctor(Auth.DataAccess.Contexts.DataContextApi)">
             <summary>
             Concrete implemnetation of the interface which also uses the Api access for authorization
             </summary>
@@ -17,6 +17,14 @@
         </member>
         <member name="M:Auth.ApiDataAccess.CalcRates.GetOrderTaxRate(System.String,System.String,System.Byte[])">
             <inheritdoc />
+        </member>
+        <member name="M:Auth.ApiDataAccess.CalcRates.GetTaxInfo(Auth.Model.RatesRate)">
+            <summary>
+            TODO Dynamic tax info retrieval
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
         </member>
         <member name="T:Auth.ApiDataAccess.ICalcRates">
             <summary>
@@ -46,23 +54,32 @@
         </member>
         <member name="T:Auth.ApiDataAccess.TaxRates">
             <summary>
-            The general Tax Rate retrieval
+             Tax Rate retrieval
             Access the APIDb directly
             TODO In Future the API DB access should call class an not access the DB directly 
             </summary>
         </member>
-        <member name="M:Auth.ApiDataAccess.TaxRates.#ctor(Auth.DataAccess.DataContextApi,Auth.DataAccess.DataContextTax)">
+        <member name="F:Auth.ApiDataAccess.TaxRates._base">
+            Base url 
+        </member>
+        <member name="M:Auth.ApiDataAccess.TaxRates.#ctor(Auth.DataAccess.Contexts.DataContextApi,Auth.DataAccess.Contexts.DataContextTax)">
             <summary>
             Database context injection according to design
             </summary>
             <param name="dbContext"></param>
         </member>
         <member name="M:Auth.ApiDataAccess.TaxRates.GetOrderTaxRate(System.String,System.String,System.Byte[])">
-            <inheritdoc />
-        </member>
-        <member name="M:Auth.ApiDataAccess.TaxRates.GetTaxInfo(Auth.Model.Rates)">
             <summary>
-            This will resolve any requests to the Database on the stored rates regions types
+            Get Tax Rates for a query
+            </summary>
+            <param name="query"></param>
+            <param name="apiName"></param>
+            <param name="userHash"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth.ApiDataAccess.TaxRates.GetTaxInfo(Auth.Model.RatesRate)">
+            <summary>
+            TODO resolve any requests to the Database on the stored rates regions types
             </summary>
             <param name="action"></param>
             <returns></returns>
@@ -70,8 +87,16 @@
         </member>
         <member name="T:Auth.Business.Calculate">
             <summary>
-            Calculate the tax for a given api call to taxjar using the combined tax rate
+            Calculate the tax for an order using taxjar 
             </summary>
+        </member>
+        <member name="M:Auth.Business.Calculate.CalculatedTax(Auth.Model.RatesRate,System.Decimal)">
+            <summary>
+            This method uses the (combined tax rate) field from TaxJar 
+            </summary>
+            <param name="item"></param>
+            <param name="amount"></param>
+            <returns></returns>
         </member>
         <member name="T:Auth.Business.ICalculate">
             <summary>
@@ -83,10 +108,9 @@
             Authentication API Access for Gateway authentication method
             </summary>
         </member>
-        <member name="M:Auth.Controllers.AuthController.#ctor(Auth.DataAccess.IAuthContext,Auth.DataAccess.IApiDbContext,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.AuthController})">
+        <member name="M:Auth.Controllers.AuthController.#ctor(Auth.DataAccess.InterfaceContexts.IAuthContext,Auth.DataAccess.InterfaceContexts.IApiDbContext,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.AuthController})">
             <summary>
-            Cunstructor using IoC for logging the repo tied to the Auth methods 
-            and configuration methods from start
+            Constructor using IoC 
             </summary>
             <param name="repo"></param>
             <param name="config"></param>
@@ -101,8 +125,8 @@
         </member>
         <member name="M:Auth.Controllers.AuthController.UserExists(Auth.Model.AuthRegisterDto)">
             <summary>
-            To see if a user exsists befor attempting authorization process
-            providing a layer of abstration for brutforce attacks
+            To see if a user exists before attempting authorization process
+            providing a layer of protection against brute force attacks
             </summary>
             <param name="user"></param>
             <returns></returns>
@@ -110,36 +134,68 @@
         <member name="M:Auth.Controllers.AuthController.Login(Auth.Model.AuthRegisterDto)">
             <summary>
             Standard login method using jwt tokens
+             [HttpPost("login")]
             </summary>
             <param name="user"></param>
             <returns></returns>
         </member>
         <member name="M:Auth.Controllers.AuthController.SaveApi(System.String,System.String,System.String,System.String)">
-            Test Hash 8743b52063cd84097a65d1633f5c74f5
-            <summary>
-            Add API Key To the api keys for a specific user
-            eliminating the authorization as the assigning of api keys
-            will be the authorization
-            </summary>
-            <param name="apikey"></param>
-            <param name="apiName"></param>
-            <param name="authorized"></param>
-            <returns></returns>
+             <summary>
+            authorization as the assigning of api keys
+             will be the authorization
+             </summary>
+             <param name="apikey"></param>
+             <param name="apiName"></param>
+             <param name="authorized"></param>
+             <returns></returns>
         </member>
         <member name="T:Auth.Controllers.CalculationsController">
             <summary>
-            Calculator controller
             gives access to the calculated DB
             and the function to calculate the rates for an order
             </summary>
         </member>
-        <member name="M:Auth.Controllers.CalculationsController.#ctor(Auth.DataAccess.IAuthContext,Auth.ApiDataAccess.ICalcRates,Auth.DataAccess.ICalculateDbContext,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.CalculationsController},Auth.Business.ICalculate)">
+        <member name="M:Auth.Controllers.CalculationsController.#ctor(Auth.DataAccess.InterfaceContexts.IAuthContext,Auth.ApiDataAccess.ICalcRates,Auth.DataAccess.InterfaceContexts.ICalculateDbContext,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.CalculationsController},Auth.Business.ICalculate)">
             <summary>
             Access To the TaxJar API 
             </summary>
             <param name="t"></param>
         </member>
-        <member name="M:Auth.Controllers.TaxRatesController.#ctor(Auth.DataAccess.IAuthContext,Auth.ApiDataAccess.ITaxRates,Auth.DataAccess.ITaxServiceDbContext,Auth.DataAccess.IApiDbContext,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.TaxRatesController})">
+        <member name="M:Auth.Controllers.CalculationsController.Get(System.Decimal,System.String,System.String,System.String)">
+            <summary>
+            Tax Jar Endpoint For Calculator
+            </summary>
+            <param name="amount"></param>
+            <param name="zip"></param>
+            <param name="user"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth.Controllers.CalculationsController.Get(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Access to assign API keys to Employees on a no Trust Basis
+            </summary>
+            <param name="amount"></param>
+            <param name="query"></param>
+            <param name="apiname"></param>
+            <param name="user"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth.Controllers.CalculationsController.Get(System.String,System.String)">
+            <summary>
+            Endpoint to obtain all prior calculated orders
+            </summary>
+            <param name="user"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Auth.Controllers.TaxRatesController">
+            <summary>
+              Auth
+            </summary>
+        </member>
+        <member name="M:Auth.Controllers.TaxRatesController.#ctor(Auth.DataAccess.InterfaceContexts.IAuthContext,Auth.ApiDataAccess.ITaxRates,Auth.DataAccess.InterfaceContexts.ITaxServiceDbContext,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.TaxRatesController})">
             <summary>
             Access To the TaxJar API 
             </summary>
@@ -147,13 +203,35 @@
         </member>
         <member name="M:Auth.Controllers.TaxRatesController.GetTaxInfo(System.String,System.String,System.String,System.String)">
             <summary>
-            This api takes the query string the api endpoint and the user
             hash obtained from the password to retrieve the API Key to make
-            the desired request.
             </summary>
             <param name="query"></param>
-            <param name="apiName"></param>
-            <param name="authorized"></param>
+            <param name="zip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth.Controllers.TaxRatesController.GetTaxInfoQuery(System.String,System.String,System.String)">
+            <summary>
+            Get Tax info for region of interest
+            </summary>
+            <param name="query"></param>
+            <param name="user"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth.Controllers.TaxRatesController.Get(System.String,System.String)">
+            <summary>
+            Retuen all rates
+            </summary>
+            <param name="user"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth.Controllers.TaxRatesController.GetQueriedTaxByFrequency(System.String,System.String,System.Decimal)">
+            <summary>
+            Retuen all rates above x from the database
+            </summary>
+            <param name="user"></param>
+            <param name="password"></param>
             <returns></returns>
         </member>
         <member name="T:Auth.DataAccess.ApiDbContext">
@@ -162,7 +240,7 @@
             This maps the user to each API key which the user is authorized to use
             </summary>
         </member>
-        <member name="M:Auth.DataAccess.ApiDbContext.#ctor(Auth.DataAccess.DataContextApi)">
+        <member name="M:Auth.DataAccess.ApiDbContext.#ctor(Auth.DataAccess.Contexts.DataContextApi)">
             <summary>
             Inject context this is how the base implementation should be throught the
             application as to abstract the access to Database
@@ -224,31 +302,31 @@
             the data from tax rates can be accessed either DB or API 
             </summary>
         </member>
-        <member name="M:Auth.DataAccess.CalculatorDbContext.#ctor(Auth.DataAccess.DataContextCalc)">
+        <member name="M:Auth.DataAccess.CalculatorDbContext.#ctor(Auth.DataAccess.Contexts.DataContextCalc)">
             <summary>
             Injecting the shared DB context into the controller
             TODO Abstract db from controller in separate class
             </summary>
             <param name="context"></param>
         </member>
-        <member name="T:Auth.DataAccess.DataContextCalc">
+        <member name="T:Auth.DataAccess.Contexts.DataContextCalc">
             <summary>
             Calculator Interface implements Save To Sqlite DB
             </summary>
         </member>
-        <member name="T:Auth.DataAccess.DataContextTax">
+        <member name="T:Auth.DataAccess.Contexts.DataContextTax">
             <summary>
             This is the TaxJar interaction interface
             this will have the main functionality when interacting with the Tax apis
             </summary>
         </member>
-        <member name="T:Auth.DataAccess.IApiDbContext">
+        <member name="T:Auth.DataAccess.InterfaceContexts.IApiDbContext">
             <summary>
             Api Context for access and storage of the
             configured api keys for authenticated users
             </summary>
         </member>
-        <member name="M:Auth.DataAccess.IApiDbContext.GetApiKey(System.String,System.Byte[])">
+        <member name="M:Auth.DataAccess.InterfaceContexts.IApiDbContext.GetApiKey(System.String,System.Byte[])">
             <summary>
             Api key access function
             </summary>
@@ -256,7 +334,7 @@
             <param name="compareHash"></param>
             <returns></returns>
         </member>
-        <member name="M:Auth.DataAccess.IApiDbContext.SaveChanges(Auth.Model.ApiDbItem)">
+        <member name="M:Auth.DataAccess.InterfaceContexts.IApiDbContext.SaveChanges(Auth.Model.ApiDbItem)">
             <summary>
             Save changes or new api keys the Item takes
             the apikeyitem model
@@ -265,12 +343,12 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:Auth.DataAccess.IAuthContext">
+        <member name="T:Auth.DataAccess.InterfaceContexts.IAuthContext">
             <summary>
             Interface for Authorization calls
             </summary>
         </member>
-        <member name="M:Auth.DataAccess.IAuthContext.Register(Auth.Model.AuthModel,System.String)">
+        <member name="M:Auth.DataAccess.InterfaceContexts.IAuthContext.Register(Auth.Model.AuthModel,System.String)">
             <summary>
             Register User Interface 
             </summary>
@@ -282,7 +360,7 @@
             <param name="zip"></param>
             <returns></returns>
         </member>
-        <member name="M:Auth.DataAccess.IAuthContext.Login(System.String,System.String)">
+        <member name="M:Auth.DataAccess.InterfaceContexts.IAuthContext.Login(System.String,System.String)">
             <summary>
             Login consisting of User Password
             </summary>
@@ -290,14 +368,14 @@
             <param name="password"></param>
             <returns></returns>
         </member>
-        <member name="M:Auth.DataAccess.IAuthContext.UserExists(System.String)">
+        <member name="M:Auth.DataAccess.InterfaceContexts.IAuthContext.UserExists(System.String)">
             <summary>
             User Lookup by Username
             </summary>
             <param name="username"></param>
             <returns></returns>
         </member>
-        <member name="M:Auth.DataAccess.IAuthContext.GetUserHash(System.String,System.String)">
+        <member name="M:Auth.DataAccess.InterfaceContexts.IAuthContext.GetUserHash(System.String,System.String)">
             <summary>
             Gets the user hash to see if the user is allowed to
             access api key
@@ -306,24 +384,24 @@
             <param name="password"></param>
             <returns></returns>
         </member>
-        <member name="T:Auth.DataAccess.IBaseDbContext">
+        <member name="T:Auth.DataAccess.InterfaceContexts.IBaseDbContext">
             <summary>
             This is the base interface for the DB access functions
             </summary>
         </member>
-        <member name="M:Auth.DataAccess.IBaseDbContext.SaveChanges(Auth.Model.TaxCalculationItemEvent)">
+        <member name="M:Auth.DataAccess.InterfaceContexts.IBaseDbContext.SaveChanges(Auth.Model.TaxCalculationItemEvent)">
             <summary>
             This takes in the Model and saves to the Database in question        /// </summary>
             <param name="item"></param>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="T:Auth.DataAccess.ICalculateDbContext">
+        <member name="T:Auth.DataAccess.InterfaceContexts.ICalculateDbContext">
             <summary>
             Calculator class interface
             </summary>
         </member>
-        <member name="T:Auth.DataAccess.ITaxServiceDbContext">
+        <member name="T:Auth.DataAccess.InterfaceContexts.ITaxServiceDbContext">
             <summary>
             The tax item is the configuration of Ibase Context
             </summary>
@@ -333,7 +411,7 @@
             Main context hub
             </summary>
         </member>
-        <member name="M:Auth.DataAccess.TaxServiceDbContext.SaveChanges(Auth.Model.Rates)">
+        <member name="M:Auth.DataAccess.TaxServiceDbContext.SaveChanges(Auth.Model.RatesRate)">
             <summary>
             Save changes to the Tax Item Db
             </summary>
@@ -362,6 +440,12 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
+        <member name="M:Auth.DataAccess.TaxServiceDbContext.GetQueriedTaxByFrequency">
+            <summary>
+            Get all calculated items 
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Auth.Extention.HttpResponceExtention">
             <summary>
             Extenstion method  fir the Http response to return the error messages 
@@ -389,15 +473,15 @@
             Smaller dto as to not expose the hash fields to a user
             </summary>
         </member>
-        <member name="T:Auth.Model.rate">
+        <member name="T:Auth.Model.RatesRate">
+            <summary>
+            Rates is the wrapper for the rate class so that JSON can serialize and deserialize
+            </summary>
+        </member>
+        <member name="T:Auth.Model.SubRate">
             <summary>
             The rate is the main object at this point
             this will carry oll the information needed
-            </summary>
-        </member>
-        <member name="T:Auth.Model.Rates">
-            <summary>
-            Rates is the wrapper for the rate class so that JSON can serialize and deserialize
             </summary>
         </member>
         <member name="T:Auth.Model.SummayRates">

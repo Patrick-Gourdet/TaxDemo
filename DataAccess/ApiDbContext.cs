@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using Auth.DataAccess.Contexts;
+using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
 
 namespace Auth.DataAccess
@@ -43,7 +44,7 @@ namespace Auth.DataAccess
         {
            // byte[] testHash = new Byte ["l;aksjdlfjkl;asdkjfghs".GetHashCode()];
           
-            var apiKeyToSave = "5da2f821eee4035db4771edab942a4cc";
+          // Test Api  var apiKeyToSave = "5da2f821eee4035db4771edab942a4cc";
             await _context.apiDBItem.AddAsync(item);
            return  await _context.SaveChangesAsync();
         }

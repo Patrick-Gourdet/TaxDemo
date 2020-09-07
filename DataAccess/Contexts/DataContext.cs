@@ -3,19 +3,17 @@
 /// Company: Iron Finacials LLC
 /// Date: 08/28/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 using Auth.Model;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace Auth.DataAccess
+namespace Auth.DataAccess.Contexts
 {
-    public class DataContextApi : DbContext
+    public class DataContext : DbContext
     {
-        public DataContextApi(DbContextOptions<DataContextApi> options) : base(options) {}
+        public DataContext(DbContextOptions<DataContext> options) : base(options) {}
    
-        public DbSet<ApiDbItem> apiDBItem { get; set; }
+        public DbSet<AuthModel> auth { get; set; }
 
     }
 }
-
-       

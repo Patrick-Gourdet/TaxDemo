@@ -3,10 +3,11 @@
 /// Company: Iron Finacials LLC
 /// Date: 08/28/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-using Auth.Model;
-using System.Threading.Tasks;
 
-namespace Auth.DataAccess
+using System.Threading.Tasks;
+using Auth.Model;
+
+namespace Auth.DataAccess.InterfaceContexts
 {
     /// <summary>
     /// Interface for Authorization calls

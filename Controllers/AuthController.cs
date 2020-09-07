@@ -13,6 +13,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Auth.DataAccess;
+using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,8 @@ namespace Auth.Controllers
     /// <summary>
     /// Authentication API Access for Gateway authentication method
     /// </summary>
+    [Route("api/[controller]")]
+    [ApiController]
     public class AuthController : Controller
     {
         // GET: AuthController
@@ -33,9 +36,7 @@ namespace Auth.Controllers
         private readonly IConfiguration _config;
         private readonly ILogger<AuthController> _logger;
         /// <summary>
-        /// Constructor using IoC allowing the controller access to
-        /// logging the repo tied to the Auth methods 
-        /// and configuration methods from start
+        /// Constructor using IoC 
         /// </summary>
         /// <param name="repo"></param>
         /// <param name="config"></param>
@@ -133,11 +134,7 @@ namespace Auth.Controllers
         }
 
         /// <summary>
-        /// Test Hash 8743b52063cd84097a65d1633f5c74f5
-        ///  [HttpPost("new-apikey/{apikey}/{apiName}/{user}/{password}")]
-        /// A hash created to test string to byte conversion
-        /// Add API Key To the api keys for a specific user
-        /// eliminating the authorization as the assigning of api keys
+        ///authorization as the assigning of api keys
         /// will be the authorization
         /// </summary>
         /// <param name="apikey"></param>
@@ -170,5 +167,7 @@ namespace Auth.Controllers
             
 
         }
+        // Test Hash 8743b52063cd84097a65d1633f5c74f5
+        //  [HttpPost("new-apikey/{apikey}/{apiName}/{user}/{password}")]
     }
 }
