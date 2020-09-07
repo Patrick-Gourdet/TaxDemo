@@ -121,7 +121,7 @@ namespace Auth
                     }
                 });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                var xmlPath = "./Auth.xml";
                 s.IncludeXmlComments(xmlPath);
             });
 

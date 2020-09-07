@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\patri\Desktop\BackEndDemo\Auth\Auth.xml</DocumentationFile>
+    <DocumentationFile>Auth.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -51,6 +51,8 @@
 	  <File Include=".\AuthDbLite.db" />
 	  <File Include=".\TaxDbLite.db" />
 	  <File Include=".\CalcDbLite.db" />
+	  <File Include=".\README.md"/>
+
   </ItemGroup>
 
 

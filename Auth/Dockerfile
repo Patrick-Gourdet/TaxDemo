@@ -8,6 +8,11 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["Auth/Auth.csproj", "Auth/"]
+COPY ["Auth/Auth.xml", "Auth/"]
+COPY ["Auth/ApiDbLite.db", "Auth/"]
+COPY ["Auth/TaxDbLite.db", "Auth/"]
+COPY ["Auth/CalcDbLite.db", "Auth/"]
+COPY ["Auth/AuthDbLite.db", "Auth/"]
 RUN dotnet restore "Auth/Auth.csproj"
 COPY . .
 WORKDIR "/src/."
