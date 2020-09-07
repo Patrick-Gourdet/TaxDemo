@@ -9,7 +9,7 @@
 ![Patricks github stats](https://github-readme-stats.vercel.app/api?username=patrick-gourdet&count_private=true)
 ## This docker container has unit tests as well as API interaction using swagger, data storage is handled using Encrypted SQLite
 <img src="./auth.png"/>
-# The Service contains user authentication authenticated API key DB insert and Calculation calls
+# The Service contains user authentication authenticated API key, SQLite DB insert and Calculation calls
 # as well as other features
 [![Build Status](https://img.shields.io/badge/Development-build-green)](https://fedigital.org)</br>
 
