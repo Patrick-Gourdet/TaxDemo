@@ -295,7 +295,7 @@ Auth.Controllers
 
 ##### Summary
 
-Authentication API Access for Gateway authentication method
+Authentication API Access for a Gateway authentication method
 
 <a name='M-Auth-Controllers-AuthController-#ctor-Auth-DataAccess-IAuthContext,Auth-DataAccess-IApiDbContext,Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILogger{Auth-Controllers-AuthController}-'></a>
 ### #ctor(repo,config,logger) `constructor`
@@ -352,8 +352,8 @@ Registration method
 
 ##### Summary
 
-Add API Key To the api keys for a specific user
-eliminating the authorization as the assigning of api keys
+Add API Key To the API keys for a specific user
+eliminating the authorization as the assigning of API keys
 will be the authorization
 
 ##### Returns
@@ -395,8 +395,8 @@ Auth.Model
 
 ##### Summary
 
-This is the authorization levels for an employee
-given the level determines the privileges
+This is the authorization levels Enumeration for an employee
+the Level determines the privileges; They are all prime numbers thus can be used in combinations. If the hybrids are pairs, we need to add 1 to obtain a unique value specific to the authorization level. In odd combinations, the resulting number is also prime, thus requires no further manipulation.
 
 <a name='T-Auth-Model-AuthModel'></a>
 ## AuthModel `type`
@@ -407,7 +407,7 @@ Auth.Model
 
 ##### Summary
 
-Main authentication model to find authorization levels
+Primary authentication model to find authorization levels
 to register users or login
 
 <a name='T-Auth-Model-AuthRegisterDto'></a>
@@ -430,14 +430,14 @@ Auth.ApiDataAccess
 
 ##### Summary
 
-Main calculation method for all tax calculations
+Primary calculation method for all tax calculations
 
 <a name='M-Auth-ApiDataAccess-CalcRates-#ctor-Auth-DataAccess-DataContextApi-'></a>
 ### #ctor(contex) `constructor`
 
 ##### Summary
 
-Concrete implemnetation of the interface which also uses the Api access for authorization
+Concrete implementation of the interface, which also uses the API access for authorization
 
 ##### Parameters
 
@@ -450,7 +450,7 @@ Concrete implemnetation of the interface which also uses the Api access for auth
 
 ##### Summary
 
-*Inherit from parent.*
+*Inherit from the parent.*
 
 ##### Parameters
 
@@ -465,7 +465,7 @@ Auth.Business
 
 ##### Summary
 
-Calculate the tax for a given api call to taxjar using the combined tax rate
+Calculate the tax for a given API call to taxjar using the combined tax rate
 
 <a name='T-Auth-Controllers-CalculationsController'></a>
 ## CalculationsController `type`
@@ -511,7 +511,7 @@ the data from tax rates can be accessed either DB or API
 ##### Summary
 
 Injecting the shared DB context into the controller
-TODO Abstract db from controller in separate class
+TODO Abstract DB from controller in a separate class
 
 ##### Parameters
 
@@ -528,7 +528,7 @@ Auth.DataAccess
 
 ##### Summary
 
-Calculator Interface implements Save To Sqlite DB
+Calculator Interface implements Save To Sqlite DB.
 
 <a name='T-Auth-DataAccess-DataContextTax'></a>
 ## DataContextTax `type`
@@ -540,7 +540,7 @@ Auth.DataAccess
 ##### Summary
 
 This is the TaxJar interaction interface
-this will have the main functionality when interacting with the Tax apis
+this will have the main functionality when interacting with the Tax APIs
 
 <a name='T-TaxJar-Microservice-DataAccess-ApiHelper-HttpClientSingleton'></a>
 ## HttpClientSingleton `type`
@@ -565,7 +565,7 @@ Public accessor for the HttpClient
 
 ##### Summary
 
-dispose method for the Socket handler method
+dispose of the method for the Socket handler method
 
 ##### Parameters
 
@@ -576,7 +576,7 @@ This method has no parameters.
 
 ##### Summary
 
-Dispose method to call if there is an error or memory issues
+Dispose of the method  if there is an error or memory issues
 
 ##### Parameters
 
@@ -604,7 +604,7 @@ This method has no parameters.
 
 ##### Summary
 
-Remove header needed for authentication calls. This is mainly for security reasons.
+Remove the header needed for authentication calls. This is mainly for security reasons.
 
 ##### Parameters
 
@@ -617,7 +617,7 @@ Remove header needed for authentication calls. This is mainly for security reaso
 
 ##### Summary
 
-Remove header function override to accommodate the same format as the set header function set
+Remove the header function override to accommodate the same format as the set header function set.
 
 ##### Parameters
 
@@ -660,7 +660,7 @@ Remove header overload function.
 
 ##### Summary
 
-Set header over load function using api key and api secret
+Set header overload function using an API key and API secret
 
 ##### Parameters
 
@@ -690,7 +690,7 @@ Set header overload for simplistic header addition
 
 ##### Summary
 
-Set header override using a predefined dictionary key value pairs
+Set header override using a predefined dictionary key-value pairs.
 
 ##### Parameters
 
@@ -720,7 +720,7 @@ Auth.Extention
 
 ##### Summary
 
-The extenstion method  for the Http response to return the error messages.
+The extension method for the Http response to return the error messages.
 
 <a name='T-Auth-DataAccess-IApiDbContext'></a>
 ## IApiDbContext `type`
@@ -731,15 +731,15 @@ Auth.DataAccess
 
 ##### Summary
 
-Api Context for access and storage of the
-configured api keys for authenticated users
+APIContext for access and storage of the
+configured API keys for authenticated users
 
 <a name='M-Auth-DataAccess-IApiDbContext-GetApiKey-System-String,System-Byte[]-'></a>
 ### GetApiKey(apiName,compareHash) `method`
 
 ##### Summary
 
-Api key access function
+API key access function
 
 ##### Returns
 
@@ -757,7 +757,7 @@ Api key access function
 
 ##### Summary
 
-Save changes or new api keys the Item takes
+Save changes or new API keys the Item takes
 the apikeyitem model
 
 ##### Returns
@@ -793,7 +793,7 @@ Interface for Authorization calls
 ##### Summary
 
 Gets the user hash to see if the user is allowed to
-access api key
+access API key
 
 ##### Returns
 
@@ -868,7 +868,7 @@ Auth.DataAccess
 
 ##### Summary
 
-This is the base interface for the DB access functions
+This is the base interface for the DB access functions.
 
 <a name='M-Auth-DataAccess-IBaseDbContext-SaveChanges-Auth-Model-TaxCalculationItemEvent-'></a>
 ### SaveChanges(item) `method`
@@ -902,7 +902,7 @@ Auth.ApiDataAccess
 
 ##### Summary
 
-Icalc rates access to the TaxRates over the Get Order Function
+Icalc rates access to the tax rates over the Get Order Function
 ///
 
 <a name='T-Auth-Business-ICalculate'></a>
@@ -912,9 +912,12 @@ Icalc rates access to the TaxRates over the Get Order Function
 
 Auth.Business
 
+
 ##### Summary
 
-The business logic interface
+The business logic interface, where all business logic should occur. The distinction is quickly apparent,
+if the function could be in a console application, then it is most likely only dependent on the input, thus 
+does not care where the data comes from.
 
 <a name='T-Auth-DataAccess-ICalculateDbContext'></a>
 ## ICalculateDbContext `type`
@@ -925,7 +928,7 @@ Auth.DataAccess
 
 ##### Summary
 
-Calculator class interface
+This is the concrete implementation of the Auth interface, and the DB sets thereof.
 
 <a name='T-Auth-ApiDataAccess-ITaxRates'></a>
 ## ITaxRates `type`
@@ -944,10 +947,9 @@ separate different tax brackets international or by region
 
 ##### Summary
 
-Interface for all tax rate endpoints
+All DataContext Interfaces will propagate the element through the Service bus using reflection as every service will implement the interface.
 
 ##### Returns
-
 
 
 ##### Parameters
@@ -967,7 +969,7 @@ Auth.DataAccess
 
 ##### Summary
 
-The tax item is the configuration of Ibase Context
+The Tax DB context interfaces the concrete implementation of DataContexTax implements the DbContext and is used to pass around access as needed.
 
 <a name='T-Auth-ApiDataAccess-ITax`1'></a>
 ## ITax\`1 `type`
@@ -978,7 +980,7 @@ Auth.ApiDataAccess
 
 ##### Summary
 
-Serves as the extenstion for the memento pattern
+Serves as the extension for the memento pattern
 
 ##### Generic Types
 
@@ -1005,8 +1007,7 @@ Rates is the wrapper for the rate class so that JSON can serialize and deseriali
 Auth.Model
 
 ##### Summary
-
-Has not been implemented yet but will hold all the summary elements returned form TaxJar
+Data Transfer Object
 
 <a name='T-Auth-Model-TaxCalculationItemEvent'></a>
 ## TaxCalculationItemEvent `type`
@@ -1018,7 +1019,7 @@ Auth.Model
 ##### Summary
 
 This is the data object responsible for transporting and storing the
-calculated results from the api calls
+calculated results from the API calls
 
 <a name='T-Auth-Model-TaxItemEvent'></a>
 ## TaxItemEvent `type`
@@ -1043,7 +1044,7 @@ Auth.ApiDataAccess
 
 The general Tax Rate retrieval
 Access the APIDb directly
-TODO In Future the API DB access should call class an not access the DB directly
+TODO In Future, the API DB access should be encapsulated in a decorator access the DB directly
 
 <a name='M-Auth-ApiDataAccess-TaxRates-#ctor-Auth-DataAccess-DataContextApi,Auth-DataAccess-DataContextTax-'></a>
 ### #ctor(dbContext) `constructor`
@@ -1062,8 +1063,7 @@ Database context injection according to design
 ### GetOrderTaxRate() `method`
 
 ##### Summary
-
-*Inherit from parent.*
+Gets the tax rate for a specific region using the zip code as an identifier.
 
 ##### Parameters
 
@@ -1074,10 +1074,9 @@ This method has no parameters.
 
 ##### Summary
 
-This will resolve any requests to the Database on the stored rates regions types
+This will resolve any requests to the Database on the stored rates regions types.
 
 ##### Returns
-
 
 
 ##### Parameters
@@ -1117,13 +1116,11 @@ Access To the TaxJar API
 
 ##### Summary
 
-This api takes the query string the api endpoint and the user
+This API takes the query string the API endpoint and the user
 hash obtained from the password to retrieve the API Key to make
 the desired request.
 
 ##### Returns
-
-
 
 ##### Parameters
 
@@ -1149,7 +1146,7 @@ Main context hub
 
 ##### Summary
 
-This allows for correction of faulty data TODO needs to be implemented
+This allows for the correction of data or updating with new information.
 
 ##### Returns
 
@@ -1168,54 +1165,30 @@ This allows for correction of faulty data TODO needs to be implemented
 | [System.NotImplementedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotImplementedException 'System.NotImplementedException') |  |
 
 <a name='M-Auth-DataAccess-TaxServiceDbContext-GetTaxItem'></a>
-### GetTaxItem() `method`
+### GetItemsBeyondThreshold() `method`
 
 ##### Summary
-
-Not yet implemented but will retrieve one of the past queries to the
-Tax api
+takes a given an amount in reference to the dollar returns all the values and the zip codes that 
+exceed that value.
 
 ##### Returns
 
-
-
-##### Parameters
-
-This method has no parameters.
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.NotImplementedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotImplementedException 'System.NotImplementedException') |  |
 
 <a name='M-Auth-DataAccess-TaxServiceDbContext-GetTaxItems'></a>
 ### GetTaxItems() `method`
 
 ##### Summary
 
-Not yet implemented. Will get all the elements of historical api calls
+Returns all elements in DB: Currently, this will do but should be limited or paginated.
 
 ##### Returns
-
-
-
-##### Parameters
-
-This method has no parameters.
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.NotImplementedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotImplementedException 'System.NotImplementedException') |  |
 
 <a name='M-Auth-DataAccess-TaxServiceDbContext-SaveChanges-Auth-Model-Rates-'></a>
 ### SaveChanges() `method`
 
 ##### Summary
 
-Save changes to the Tax Item Db
+Saves changes to the Tax Item Db
 
 ##### Returns
 
@@ -1235,4 +1208,4 @@ Auth.Model
 ##### Summary
 
 The rate is the main object at this point
-this will carry oll the information needed
+this will carry all the information needed
