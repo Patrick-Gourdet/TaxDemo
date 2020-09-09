@@ -4,12 +4,12 @@
 
 # The tax calculated may not be accurate as it uses the combined tax and does not have access to the nexus 
 ### Possibly could build a database with all the state to state regulations to create the Nexus lookup table.
-### Documentation has index for lookup should a need arise...
+### Documentation has indexed for lookup should a need arise...
 # Auth
-![Patricks github stats](https://github-readme-stats.vercel.app/api?username=patrick-gourdet&count_private=true)
+![Patricks GitHub stats](https://github-readme-stats.vercel.app/api?username=patrick-gourdet&count_private=true)
 ## This docker container has unit tests as well as API interaction using swagger, data storage is handled using Encrypted SQLite
 <img src="./Auth/auth.png"/>
-# The Service contains user authentication authenticated API key, SQLite DB insert and Calculation calls
+# The Service contains user authentication authenticated API key, SQLite DB insert, and Calculation calls
 # as well as other features
 [![Build Status](https://img.shields.io/badge/Development-build-green)](https://fedigital.org)</br>
 
@@ -22,13 +22,13 @@
 # Test Calculation Method 
 ## Step 1: Register user using swagger
 ## Step 2: Save API Key using the credentials created in step 1
-## Step 3: Make call to API entering amount and ZIP code
+## Step 3: Make a call to API entering amount and ZIP code
 
 ## Test Tax rates endpoint will return the values for given zip code
 ## Enter password and the user 
-## The Endpoint right above in swagger is geared towards more complicated queries but the API key does not allow thus is not tested
+## The Endpoint right above in swagger is geared towards more complicated queries, but the API key does not allow thus is not tested
 
-# Using Unit tests they are lovated togethre with the project on the test branch
+# Using Unit tests, they are located together with the project on the test branch
 ## Run API Docker container 
 ## Must alter the user then run the test
 ## Then add a user to unit test 3
