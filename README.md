@@ -11,6 +11,7 @@
 <img src="./Auth/auth.png"/>
 # The Service contains user authentication authenticated API key, SQLite DB insert, and Calculation calls
 # as well as other features
+
 [![Build Status](https://img.shields.io/badge/Development-build-green)](https://fedigital.org)</br>
 
 ## To run project clone then open in Visual Studios 
