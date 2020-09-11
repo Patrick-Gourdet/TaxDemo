@@ -1,10 +1,15 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////
+// Author: Patrick Gourdet Reinhard
+// License: Iron Financials LLC All Rights Reserved
+// Email: patrick.g.reinhard@ironfinancials.com
+// Date: 09/11/2020
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Auth.ApiDataAccess;
 using Auth.Business;
-using Auth.DataAccess;
 using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +27,7 @@ namespace Auth.Controllers
     [ApiController]
     public class CalculationsController : ControllerBase
     {
-        private ICalculatorAPIAccessor _calcApi;
+        private ICalculatorApiAccessor _calcApi;
         private ICalculateDbContext _db;
         private ILogger<CalculationsController> _logger;
         private IAuthContext _auth;
@@ -32,7 +37,7 @@ namespace Auth.Controllers
         /// </summary>
         /// <param name="t"></param>
         public CalculationsController(IAuthContext auth,
-            ICalculatorAPIAccessor calcApi, 
+            ICalculatorApiAccessor calcApi, 
             ICalculateDbContext db,
             ILogger<CalculationsController> tc,
             ICalculate calc)

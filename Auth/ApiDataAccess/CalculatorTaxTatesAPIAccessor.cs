@@ -1,4 +1,10 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////
+// Author: Patrick Gourdet Reinhard
+// License: Iron Financials LLC All Rights Reserved
+// Email: patrick.g.reinhard@ironfinancials.com
+// Date: 09/11/2020
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +19,7 @@ namespace Auth.ApiDataAccess
     /// <summary>
     /// Main calculation method for all tax calculations 
     /// </summary>
-    public class CalcRates : ICalcRates
+    public class CalculatorTaxTatesAPIAccessor : ICalculatorApiAccessor
     {
         private const string _base = "https://api.taxjar.com/v2/rates";
         public readonly DataContextApi _context;
@@ -22,7 +28,7 @@ namespace Auth.ApiDataAccess
         /// Concrete implemnetation of the interface which also uses the Api access for authorization
         /// </summary>
         /// <param name="contex"></param>
-        public CalcRates(DataContextApi contex)
+        public CalculatorTaxTatesAPIAccessor(DataContextApi contex)
         {
             _context = contex;
         }

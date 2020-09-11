@@ -1,4 +1,10 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////
+// Author: Patrick Gourdet Reinhard
+// License: Iron Financials LLC All Rights Reserved
+// Email: patrick.g.reinhard@ironfinancials.com
+// Date: 09/11/2020
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.IO;
 using System.Security.Authentication;
 using System.Text;
@@ -8,7 +14,6 @@ using Auth.DataAccess.InterfaceContexts;
 using Auth.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TaxJar.Microservice.DataAccess;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

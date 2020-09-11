@@ -1,4 +1,10 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////////////////////////////////
+// Author: Patrick Gourdet Reinhard
+// License: Iron Financials LLC All Rights Reserved
+// Email: patrick.g.reinhard@ironfinancials.com
+// Date: 09/11/2020
+///////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +22,7 @@ namespace Auth.ApiDataAccess
     /// Access the APIDb directly
     /// TODO In Future the API DB access should call class an not access the DB directly 
     /// </summary>
-    public class TaxRates : ITaxRates
+    public class TaxRatesByZIPCodeAPIAccessor : ITaxRates
     {
         /// Base url 
         private const string _base = "https://api.taxjar.com/v2/";
@@ -29,7 +35,7 @@ namespace Auth.ApiDataAccess
         /// Database context injection according to design
         /// </summary>
         /// <param name="dbContext"></param>
-        public TaxRates(DataContextApi dbContext,DataContextTax dataContextTax)
+        public TaxRatesByZIPCodeAPIAccessor(DataContextApi dbContext,DataContextTax dataContextTax)
         {
             _context = dbContext;
             _contextTax = dataContextTax;
