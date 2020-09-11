@@ -22,7 +22,7 @@ namespace Auth.Controllers
     [ApiController]
     public class CalculationsController : ControllerBase
     {
-        private ICalcRates _calcApi;
+        private ICalculatorAPIAccessor _calcApi;
         private ICalculateDbContext _db;
         private ILogger<CalculationsController> _logger;
         private IAuthContext _auth;
@@ -32,7 +32,7 @@ namespace Auth.Controllers
         /// </summary>
         /// <param name="t"></param>
         public CalculationsController(IAuthContext auth,
-            ICalcRates calcApi, 
+            ICalculatorAPIAccessor calcApi, 
             ICalculateDbContext db,
             ILogger<CalculationsController> tc,
             ICalculate calc)
