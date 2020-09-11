@@ -116,11 +116,10 @@ namespace Auth
                     },
                     License = new OpenApiLicense
                     {
-                        Name = "Use under LICX",
+                        Name = "Use under Rights",
                         Url = new Uri("https://example.com/license"),
                     }
                 });
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = "./Auth.xml";
                 s.IncludeXmlComments(xmlPath);
             });
