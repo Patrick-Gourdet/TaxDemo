@@ -1,0 +1,810 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API DEMO",
+    "description": "<h1>A basic demo to show api skills demonstration<h1>",
+    "termsOfService": "https://linkedin.com/patrickgourdet",
+    "contact": {
+      "name": "Patrick Gourdet",
+      "url": "https://linkedin.com/patrickgourdet",
+      "email": "patrickgourdet@protonmail.com"
+    },
+    "license": {
+      "name": "Use under Rights",
+      "url": "https://example.com/license"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Registration method",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/userexists": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "To see if a user exists before attempting authorization process\r\nproviding a layer of protection against brute force attacks",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Standard login method using jwt tokens\r\n [HttpPost(\"login\")]",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/new-apikey/{apikey}/{apiName}/{user}/{password}": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "authorization as the assigning of api keys\r\n will be the authorization",
+        "parameters": [
+          {
+            "name": "apikey",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiName",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Calculations/taxjar/{amount}/{zip}/{user}/{password}": {
+      "get": {
+        "tags": [
+          "Calculations"
+        ],
+        "summary": "Tax Jar Endpoint For Calculator",
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "description": "",
+              "format": "double"
+            }
+          },
+          {
+            "name": "zip",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Calculations/rates/{amount}/{query}/{apiname}/{user}/{password}": {
+      "get": {
+        "tags": [
+          "Calculations"
+        ],
+        "summary": "Access to assign API keys to Employees on a no Trust Basis",
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "query",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiname",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Calculations/all-calculations/{user}/{password}": {
+      "get": {
+        "tags": [
+          "Calculations"
+        ],
+        "summary": "Endpoint to obtain all prior calculated orders",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaxCalculationItemEvent"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TaxRates/query/{zip}/{state}/{user}/{password}": {
+      "get": {
+        "tags": [
+          "TaxRates"
+        ],
+        "summary": "hash obtained from the password to retrieve the API Key to make",
+        "parameters": [
+          {
+            "name": "zip",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "state",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesRate"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesRate"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TaxRates/query/{query}/{user}/{password}": {
+      "get": {
+        "tags": [
+          "TaxRates"
+        ],
+        "summary": "Get Tax info for region of interest",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "user",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesRate"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesRate"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TaxRates/all-calculations/{user}/{password}": {
+      "get": {
+        "tags": [
+          "TaxRates"
+        ],
+        "summary": "Retuen all rates",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TaxRates/all-tax-Above/{user}/{password}/{amount}": {
+      "get": {
+        "tags": [
+          "TaxRates"
+        ],
+        "summary": "Retuen all rates above x from the database",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "input",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthLevel": {
+        "enum": [
+          7,
+          11,
+          13,
+          17,
+          23,
+          29,
+          41
+        ],
+        "type": "integer",
+        "description": "This is the authorization levels for an employee\r\ngiven the level determines the privileges",
+        "format": "int32"
+      },
+      "securityDefinitions": {
+        "api_key": {
+          "type": "apiKey",
+          "name": "api_key",
+          "in": "header"
+        },
+        "petstore_auth": {
+          "type": "oauth2",
+          "authorizationUrl": "https://localhost:44316/auth/api/login",
+          "flow": "implicit",
+          "scopes": {
+            "write:pets": "Add API",
+          }
+        }
+      },
+      "AuthRegisterDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "pasword": {
+            "type": "string",
+            "nullable": true
+          },
+          "autheticationLevel": {
+            "$ref": "#/components/schemas/AuthLevel"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Smaller dto as to not expose the hash fields to a user"
+      },
+      "TaxCalculationItemEvent": {
+        "type": "object",
+        "properties": {
+          "calcId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "percent": {
+            "type": "number",
+            "format": "double"
+          },
+          "calculatedAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "taxId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This is the data object responsible for transporting and storing the\r\ncalculated results from the api calls"
+      },
+      "SubRate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rate_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "city_rate": {
+            "type": "string",
+            "nullable": true
+          },
+          "combined_district_rate": {
+            "type": "string",
+            "nullable": true
+          },
+          "combined_rate": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "country_rate": {
+            "type": "string",
+            "nullable": true
+          },
+          "county": {
+            "type": "string",
+            "nullable": true
+          },
+          "county_rate": {
+            "type": "string",
+            "nullable": true
+          },
+          "freight_taxable": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "state_rate": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "The rate is the main object at this point\r\nthis will carry oll the information needed"
+      },
+      "RatesRate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rate": {
+            "$ref": "#/components/schemas/SubRate"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Rates is the wrapper for the rate class so that JSON can serialize and deserialize"
+      }
+    }
+  }
+}
