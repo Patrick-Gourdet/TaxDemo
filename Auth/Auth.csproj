@@ -20,6 +20,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\swagger\ui\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="taxcust\documentation-customization.css" />
+    <None Remove="taxcust\documentation-customization.js" />
+    <None Remove="taxcust\favicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\swagger\ui\index.html" />
+    <EmbeddedResource Include="wwwroot\swagger\ui\swagger-ui.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
 	  <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
 
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
@@ -41,7 +59,7 @@
 	  <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.0.4" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
-	  <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.0" />
+
 	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
 
 	  <PackageReference Include="Vsxmd" Version="1.4.5">
@@ -51,8 +69,12 @@
 	  <File Include=".\AuthDbLite.db" />
 	  <File Include=".\TaxDbLite.db" />
 	  <File Include=".\CalcDbLite.db" />
-	  <File Include=".\README.md"/>
+	  <File Include=".\README.md" />
 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="taxcust\" />
   </ItemGroup>
 
 

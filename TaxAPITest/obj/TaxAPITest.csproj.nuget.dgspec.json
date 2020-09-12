@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\patri\\Desktop\\BackEndDemo\\TaxAPITest\\TaxAPITest.csproj": {}
+    "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patri\\Desktop\\BackEndDemo\\Auth\\Auth.csproj": {
+    "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\Auth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patri\\Desktop\\BackEndDemo\\Auth\\Auth.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\Auth.csproj",
         "projectName": "Auth",
-        "projectPath": "C:\\Users\\patri\\Desktop\\BackEndDemo\\Auth\\Auth.csproj",
+        "projectPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\Auth.csproj",
         "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patri\\Desktop\\BackEndDemo\\Auth\\obj\\",
+        "outputPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -55,6 +55,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.7, )"
+            },
+            "Microsoft.AspNetCore.StaticFiles": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.Data.Sqlite.Core": {
               "target": "Package",
@@ -104,10 +108,6 @@
               "target": "Package",
               "version": "[5.5.0, )"
             },
-            "Swashbuckle.AspNetCore.Swagger": {
-              "target": "Package",
-              "version": "[5.5.0, )"
-            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.7.1, )"
@@ -147,14 +147,14 @@
         }
       }
     },
-    "C:\\Users\\patri\\Desktop\\BackEndDemo\\TaxAPITest\\TaxAPITest.csproj": {
+    "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patri\\Desktop\\BackEndDemo\\TaxAPITest\\TaxAPITest.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
         "projectName": "TaxAPITest",
-        "projectPath": "C:\\Users\\patri\\Desktop\\BackEndDemo\\TaxAPITest\\TaxAPITest.csproj",
+        "projectPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
         "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patri\\Desktop\\BackEndDemo\\TaxAPITest\\obj\\",
+        "outputPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -175,8 +175,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\patri\\Desktop\\BackEndDemo\\Auth\\Auth.csproj": {
-                "projectPath": "C:\\Users\\patri\\Desktop\\BackEndDemo\\Auth\\Auth.csproj"
+              "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\Auth.csproj": {
+                "projectPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\Auth.csproj"
               }
             }
           }

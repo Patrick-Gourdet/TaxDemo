@@ -21,6 +21,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace Auth
 {
@@ -105,8 +107,8 @@ namespace Auth
                 s.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "API DEMO",
-                    Description = "<h1>A basic demo to show api skills demonstration<h1>",
+                    Title = "Tax API",
+                    Description = "<h1>Order Tax API<h1>",
                     TermsOfService = new Uri("https://linkedin.com/patrickgourdet"),
                     Contact = new OpenApiContact
                     {
@@ -114,11 +116,6 @@ namespace Auth
                         Email = "patrickgourdet@protonmail.com",
                         Url = new Uri("https://linkedin.com/patrickgourdet"),
                     },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Use under Rights",
-                        Url = new Uri("https://example.com/license"),
-                    }
                 });
                 var xmlPath = "./Auth.xml";
                 s.IncludeXmlComments(xmlPath);
@@ -178,16 +175,11 @@ namespace Auth
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            SwaggerUIOptions h = new SwaggerUIOptions();
             app.UseAuthorization();
-
+            app.UseStaticFiles();
             #region Swagger
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EFCore.CodeFirstCalcData.WebApi");
-            });
 
             #endregion
 
