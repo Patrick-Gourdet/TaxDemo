@@ -21,7 +21,27 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$left', endColorstr='$right',GradientType=0 );
     /* IE6-9 */
 }
+.svg-assets {
+    display: none !important;
+}
+.swagger-ui .a {
+    text-decoration: none;
+}
+.swagger-ui .a:link {
+    text-decoration: none;
+}
 
+.swagger-ui .a:visited {
+    text-decoration: none;
+}
+
+.swagger-ui .a:hover {
+    text-decoration: underline;
+}
+
+.swagger-ui .a:active {
+    text-decoration: underline;
+}
 .swagger-ui html {
     box-sizing: border-box
 }
@@ -32,7 +52,8 @@
 
 .swagger-ui body {
     margin: 0;
-    background: #fafafa
+    background: #fafafa;
+    font-family: 'Times New Roman', Times, serif
 }
 
 .swagger-ui .wrapper {
@@ -73,7 +94,7 @@
 .swagger-ui .opblock-tag {
     font-size: 24px;
     margin: 0 0 5px;
-    font-family: Titillium Web, sans-serif;
+    font-family: 'Times New Roman', Times, serif
     color: #3b4151
 }
 
@@ -95,7 +116,7 @@
         -webkit-box-flex: 1;
         -ms-flex: 1;
         flex: 1;
-        font-family: Open Sans, sans-serif;
+        font-family: 'Times New Roman', Times, serif
         color: #3b4151
     }
 
