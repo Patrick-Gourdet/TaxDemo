@@ -1,11 +1,11 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["Auth/Auth.csproj", "Auth/"]
 COPY ["Auth/Auth.xml", "Auth/"]
@@ -13,6 +13,7 @@ COPY ["Auth/ApiDbLite.db", "Auth/"]
 COPY ["Auth/TaxDbLite.db", "Auth/"]
 COPY ["Auth/CalcDbLite.db", "Auth/"]
 COPY ["Auth/AuthDbLite.db", "Auth/"]
+COPY ["Auth/README.md", "Auth/"]
 RUN dotnet restore "Auth/Auth.csproj"
 COPY . .
 WORKDIR "/src/."

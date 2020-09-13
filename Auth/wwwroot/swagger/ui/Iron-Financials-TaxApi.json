@@ -1,17 +1,13 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "API DEMO",
-    "description": "<h1>A basic demo to show api skills demonstration<h1>",
+    "title": "Tax API",
+    "description": "<h1>Tax Calculator API Business transactions<h1>",
     "termsOfService": "https://linkedin.com/patrickgourdet",
     "contact": {
-      "name": "Patrick Gourdet",
-      "url": "https://linkedin.com/patrickgourdet",
-      "email": "patrickgourdet@protonmail.com"
-    },
-    "license": {
-      "name": "Use under Rights",
-      "url": "https://example.com/license"
+      "name": "Patrick Gourdet Reinhard",
+      "url": "https://Ironfinancials.com",
+      "email": "patrick.g.reinhard@ironfinancials.com"
     },
     "version": "v1"
   },
@@ -672,7 +668,7 @@
           "authorizationUrl": "https://localhost:44316/auth/api/login",
           "flow": "implicit",
           "scopes": {
-            "write:pets": "Add API",
+            "write:pets": "Add API"
           }
         }
       },
