@@ -8171,11 +8171,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
+      "projectUniqueName": "C:\\Users\\patri\\source\\repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
       "projectName": "TaxAPITest",
-      "projectPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
+      "projectPath": "C:\\Users\\patri\\source\\repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
       "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\TaxAPITest\\obj\\",
+      "outputPath": "C:\\Users\\patri\\source\\repos\\ApiDemo\\TaxAPITest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -8196,8 +8196,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\Auth.csproj": {
-              "projectPath": "C:\\Users\\patri\\Source\\Repos\\ApiDemo\\Auth\\Auth.csproj"
+            "C:\\Users\\patri\\source\\repos\\ApiDemo\\Auth\\Auth.csproj": {
+              "projectPath": "C:\\Users\\patri\\source\\repos\\ApiDemo\\Auth\\Auth.csproj"
             }
           }
         }
