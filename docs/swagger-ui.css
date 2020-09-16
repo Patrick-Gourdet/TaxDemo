@@ -1,4 +1,5 @@
-﻿
+
+@charset "UTF-8";
 
 /* Style the tab buttons */
 .tablink {
@@ -34,7 +35,6 @@
   text-shadow: 2px 0px 4px #000;
   position: relative;
 }
-@charset "UTF-8";
  .toolbar {
     top: 0;
     left: 0;
