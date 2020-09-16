@@ -1,6 +1,39 @@
 ﻿
 
+/* Style the tab buttons */
+.tablink {
+  background-color: #1b5067!important;
+ 
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  text-shadow: 2px 2px #24292e;
 
+  font-size: 17px;
+  width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+  background-color: #307796 !important;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+.t{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 2px 0px 4px #000;
+  position: relative;
+}
 @charset "UTF-8";
  .toolbar {
     top: 0;
