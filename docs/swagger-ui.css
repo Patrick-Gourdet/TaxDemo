@@ -7,16 +7,16 @@
 .tablink {
   background-color: #1b5067!important;
  
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  text-shadow: 2px 2px #24292e;
+  color: white  !important;
+  float: left  !important;
+  border: none  !important;
+  outline: none  !important;
+  cursor: pointer  !important;
+  padding: 14px 16px  !important;
+  text-shadow: 2px 2px #24292e  !important;
 
-  font-size: 17px;
-  width: 25%;
+  font-size: 17px  !important;
+  width: 25%  !important;
 }
 
 /* Change background color of buttons on hover */
