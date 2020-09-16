@@ -1,6 +1,8 @@
 
 @charset "UTF-8";
-
+  .spacer {
+    flex: 1;
+  }
 /* Style the tab buttons */
 .tablink {
   background-color: #1b5067!important;
