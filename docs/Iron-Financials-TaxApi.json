@@ -19,11 +19,11 @@
         ],
         "summary": "Registration method",
         "requestBody": {
-          "description": "",
+          "description": "Needs Username Password and Authorization Level",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AuthRegisterDto"
+                "$ref": "#/responce.json"
               }
             },
             "text/json": {
