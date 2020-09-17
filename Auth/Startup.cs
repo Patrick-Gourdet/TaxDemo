@@ -170,16 +170,28 @@ namespace Auth
                         }
                     });
                 });
-            //app.UseHsts();
+            app.UseHsts();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            SwaggerUIOptions h = new SwaggerUIOptions();
+            //SwaggerUIOptions h = new SwaggerUIOptions();
+            //app.UseAuthorization();
+            ////app.UseStaticFiles();
+            //#region Swagger
+
+
+            //#endregion
+
+            //app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             app.UseAuthorization();
-            app.UseStaticFiles();
             #region Swagger
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EFCore.CodeFirstCalcData.WebApi");
+            });
 
             #endregion
 

@@ -18,26 +18,53 @@
           "Auth"
         ],
         "summary": "Registration method",
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegisterDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegisterDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegisterDto"
-              }
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "description": "The authentication level is a value 7 - 29",
+            "in": "path",
+            "name": "authenticationlevel",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "7",
+              "nullable": true
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -51,26 +78,32 @@
           "Auth"
         ],
         "summary": "To see if a user exists before attempting authorization process\r\nproviding a layer of protection against brute force attacks",
-        "requestBody": {
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegisterDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegisterDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegisterDto"
-              }
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "",
+              "nullable": true
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success",
