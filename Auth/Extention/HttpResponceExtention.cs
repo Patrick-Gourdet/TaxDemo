@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 namespace Auth.Extention
 {
     /// <summary>
-    /// Extenstion method  fir the Http response to return the error messages 
+    /// Extenstion method  for the Http response to return the error messages 
     /// </summary>
     public static class HttpResponceExtention
     {
