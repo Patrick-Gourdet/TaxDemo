@@ -35,13 +35,13 @@ namespace Auth.DataAccess
 
         public async Task<int> SaveChanges(TaxCalculationItemEvent item)
         {
-            _context.taxCalcItem.Add(item);
+            _context.taxCalculationUsingZip.Add(item);
             return await _context.SaveChangesAsync();
             
         }
         public async Task<List<TaxCalculationItemEvent>> GetCalculations()
         {
-            return await _context.taxCalcItem.ToListAsync();
+            return await _context.taxCalculationUsingZip.ToListAsync();
 
         }
     }

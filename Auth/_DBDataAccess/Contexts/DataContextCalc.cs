@@ -15,6 +15,8 @@ namespace Auth.DataAccess.Contexts
     public class DataContextCalc : DbContext
     {
         public DataContextCalc(DbContextOptions<DataContextCalc> options) : base(options) {}
-        public DbSet<TaxCalculationItemEvent> taxCalcItem { get; set; }
+        public DbSet<TaxCalculationItemEvent> taxCalculationUsingZip { get; set; }
+        public DbSet<CalculationModel> calculationEndPoint { get; set; }
+
     }
 }

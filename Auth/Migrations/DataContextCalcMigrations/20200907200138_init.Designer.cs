@@ -41,7 +41,7 @@ namespace Auth.Migrations.DataContextCalcMigrations
 
                     b.HasKey("CalcId");
 
-                    b.ToTable("taxCalcItem");
+                    b.ToTable("taxCalculationUsingZip");
                 });
 #pragma warning restore 612, 618
         }

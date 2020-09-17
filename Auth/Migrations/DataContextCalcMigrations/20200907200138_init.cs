@@ -8,7 +8,7 @@ namespace Auth.Migrations.DataContextCalcMigrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "taxCalcItem",
+                name: "taxCalculationUsingZip",
                 columns: table => new
                 {
                     CalcId = table.Column<Guid>(nullable: false),
@@ -27,7 +27,7 @@ namespace Auth.Migrations.DataContextCalcMigrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "taxCalcItem");
+                name: "taxCalculationUsingZip");
         }
     }
 }
