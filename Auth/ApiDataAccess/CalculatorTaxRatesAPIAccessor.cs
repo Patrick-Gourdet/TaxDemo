@@ -19,7 +19,7 @@ namespace Auth.ApiDataAccess
     /// <summary>
     /// Main calculation method for all tax calculations 
     /// </summary>
-    public class CalculatorTaxTatesAPIAccessor : ICalculatorApiAccessor
+    public class CalculatorTaxRatesAPIAccessor : ICalculatorApiAccessor
     {
         private const string _base = "https://api.taxjar.com/v2/rates";
         public readonly DataContextApi _context;
@@ -28,7 +28,7 @@ namespace Auth.ApiDataAccess
         /// Concrete implemnetation of the interface which also uses the Api access for authorization
         /// </summary>
         /// <param name="contex"></param>
-        public CalculatorTaxTatesAPIAccessor(DataContextApi contex)
+        public CalculatorTaxRatesAPIAccessor(DataContextApi contex)
         {
             _context = contex;
         }

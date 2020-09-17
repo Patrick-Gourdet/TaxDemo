@@ -139,7 +139,7 @@ namespace Auth
                     };
                 });
             services.AddScoped<ICalculate, Calculate>();
-            services.AddScoped<ICalculatorApiAccessor, CalculatorTaxTatesAPIAccessor>();
+            services.AddScoped<ICalculatorApiAccessor, CalculatorTaxRatesAPIAccessor>();
             services.AddScoped<ITaxRates, TaxRatesByZIPCodeAPIAccessor>();
             services.AddScoped<ITaxServiceDbContext, TaxServiceDbContext>();
             services.AddScoped<ICalculateDbContext,CalculatorDbContext>();
