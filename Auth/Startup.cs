@@ -175,25 +175,16 @@ namespace Auth
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            //SwaggerUIOptions h = new SwaggerUIOptions();
-            //app.UseAuthorization();
-            ////app.UseStaticFiles();
+            SwaggerUIOptions h = new SwaggerUIOptions();
+            app.UseAuthorization();
+            app.UseStaticFiles();
             //#region Swagger
 
 
             //#endregion
 
             //app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            app.UseAuthorization();
-            #region Swagger
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EFCore.CodeFirstCalcData.WebApi");
-            });
-
-            #endregion
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

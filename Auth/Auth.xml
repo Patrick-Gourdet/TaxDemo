@@ -4,87 +4,6 @@
         <name>Auth</name>
     </assembly>
     <members>
-        <member name="T:Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor">
-            <summary>
-            Main calculation method for all tax calculations 
-            </summary>
-        </member>
-        <member name="M:Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor.#ctor(Auth.DataAccess.Contexts.DataContextApi)">
-            <summary>
-            Concrete implemnetation of the interface which also uses the Api access for authorization
-            </summary>
-            <param name="contex"></param>
-        </member>
-        <member name="M:Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])">
-            <inheritdoc />
-        </member>
-        <member name="M:Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor.GetTaxInfo(Auth.Model.RatesRate)">
-            <summary>
-            TODO Dynamic tax info retrieval
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="T:Auth.ApiDataAccess.ICalculatorApiAccessor">
-            <summary>
-            Icalc rates access to the TaxRates over the Get Order Function
-            /// </summary>
-        </member>
-        <member name="T:Auth.ApiDataAccess.ITax`1">
-            <summary>
-            Serves as the extenstion for the memento pattern
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="T:Auth.ApiDataAccess.ITaxRates">
-            <summary>
-            Access to base tax-rates for any order this can be expanded to
-            separate different tax brackets international or by region 
-            </summary>
-        </member>
-        <member name="M:Auth.ApiDataAccess.ITaxRates.GetOrderTaxRate(System.String,System.String,System.Byte[])">
-            <summary>
-            Interface for all tax rate endpoints
-            </summary>
-            <param name="query"></param>
-            <param name="apiName"></param>
-            <param name="userHash"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor">
-            <summary>
-             Tax Rate retrieval
-            Access the APIDb directly
-            TODO In Future the API DB access should call class an not access the DB directly 
-            </summary>
-        </member>
-        <member name="F:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor._base">
-            Base url 
-        </member>
-        <member name="M:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.#ctor(Auth.DataAccess.Contexts.DataContextApi,Auth.DataAccess.Contexts.DataContextTax)">
-            <summary>
-            Database context injection according to design
-            </summary>
-            <param name="dbContext"></param>
-        </member>
-        <member name="M:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])">
-            <summary>
-            Get Tax Rates for a query
-            </summary>
-            <param name="query"></param>
-            <param name="apiName"></param>
-            <param name="userHash"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetTaxInfo(Auth.Model.RatesRate)">
-            <summary>
-            TODO resolve any requests to the Database on the stored rates regions types
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
         <member name="T:Auth.Business.Calculate">
             <summary>
             Calculate the tax for an order using taxjar 
@@ -233,6 +152,142 @@
             <param name="user"></param>
             <param name="password"></param>
             <returns></returns>
+        </member>
+        <member name="T:Auth.Extention.HttpResponceExtention">
+            <summary>
+            Extenstion method  for the Http response to return the error messages 
+            </summary>
+        </member>
+        <member name="T:Auth.Model.ApiDbItem">
+            <summary>
+            Base APi DB element for data interactions
+            </summary>
+        </member>
+        <member name="T:Auth.Model.AuthLevel">
+            <summary>
+            This is the authorization levels for an employee
+            given the level determines the privileges
+            </summary>
+        </member>
+        <member name="T:Auth.Model.AuthModel">
+            <summary>
+            Main authentication model to find authorization levels
+            to register users or login
+            </summary>
+        </member>
+        <member name="T:Auth.Model.AuthRegisterDto">
+            <summary>
+            Smaller dto as to not expose the hash fields to a user
+            </summary>
+        </member>
+        <member name="T:Auth.Model.RatesRate">
+            <summary>
+            Rates is the wrapper for the rate class so that JSON can serialize and deserialize
+            </summary>
+        </member>
+        <member name="T:Auth.Model.SubRate">
+            <summary>
+            The rate is the main object at this point
+            this will carry oll the information needed
+            </summary>
+        </member>
+        <member name="T:Auth.Model.SummayRates">
+            <summary>
+            Has not been implemented yet but will hold all the summary elements returned form TaxJar
+            </summary>
+        </member>
+        <member name="T:Auth.Model.TaxCalculationItemEvent">
+            <summary>
+            This is the data object responsible for transporting and storing the
+            calculated results from the api calls
+            </summary>
+        </member>
+        <member name="T:Auth.Model.TaxItemEvent">
+            <summary>
+            Tax Item information for DB storage for possible later
+            statistical analysis.
+            </summary>
+        </member>
+        <member name="T:Auth.ApiDataAccess.CalculatorTaxRatesAPIAccessor">
+            <summary>
+            Main calculation method for all tax calculations 
+            </summary>
+        </member>
+        <member name="M:Auth.ApiDataAccess.CalculatorTaxRatesAPIAccessor.#ctor(Auth.DataAccess.Contexts.DataContextApi)">
+            <summary>
+            Concrete implemnetation of the interface which also uses the Api access for authorization
+            </summary>
+            <param name="contex"></param>
+        </member>
+        <member name="M:Auth.ApiDataAccess.CalculatorTaxRatesAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Auth.ApiDataAccess.CalculatorTaxRatesAPIAccessor.GetTaxInfo(Auth.Model.RatesRate)">
+            <summary>
+            TODO Dynamic tax info retrieval
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:Auth.ApiDataAccess.ICalculatorApiAccessor">
+            <summary>
+            Icalc rates access to the TaxRates over the Get Order Function
+            /// </summary>
+        </member>
+        <member name="T:Auth.ApiDataAccess.ITax`1">
+            <summary>
+            Serves as the extenstion for the memento pattern
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Auth.ApiDataAccess.ITaxRates">
+            <summary>
+            Access to base tax-rates for any order this can be expanded to
+            separate different tax brackets international or by region 
+            </summary>
+        </member>
+        <member name="M:Auth.ApiDataAccess.ITaxRates.GetOrderTaxRate(System.String,System.String,System.Byte[])">
+            <summary>
+            Interface for all tax rate endpoints
+            </summary>
+            <param name="query"></param>
+            <param name="apiName"></param>
+            <param name="userHash"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor">
+            <summary>
+             Tax Rate retrieval
+            Access the APIDb directly
+            TODO In Future the API DB access should call class an not access the DB directly 
+            </summary>
+        </member>
+        <member name="F:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor._base">
+            Base url 
+        </member>
+        <member name="M:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.#ctor(Auth.DataAccess.Contexts.DataContextApi,Auth.DataAccess.Contexts.DataContextTax)">
+            <summary>
+            Database context injection according to design
+            </summary>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])">
+            <summary>
+            Get Tax Rates for a query
+            </summary>
+            <param name="query"></param>
+            <param name="apiName"></param>
+            <param name="userHash"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetTaxInfo(Auth.Model.RatesRate)">
+            <summary>
+            TODO resolve any requests to the Database on the stored rates regions types
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
         </member>
         <member name="T:Auth.DataAccess.ApiDbContext">
             <summary>
@@ -445,61 +500,6 @@
             Get all calculated items 
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:Auth.Extention.HttpResponceExtention">
-            <summary>
-            Extenstion method  fir the Http response to return the error messages 
-            </summary>
-        </member>
-        <member name="T:Auth.Model.ApiDbItem">
-            <summary>
-            Base APi DB element for data interactions
-            </summary>
-        </member>
-        <member name="T:Auth.Model.AuthLevel">
-            <summary>
-            This is the authorization levels for an employee
-            given the level determines the privileges
-            </summary>
-        </member>
-        <member name="T:Auth.Model.AuthModel">
-            <summary>
-            Main authentication model to find authorization levels
-            to register users or login
-            </summary>
-        </member>
-        <member name="T:Auth.Model.AuthRegisterDto">
-            <summary>
-            Smaller dto as to not expose the hash fields to a user
-            </summary>
-        </member>
-        <member name="T:Auth.Model.RatesRate">
-            <summary>
-            Rates is the wrapper for the rate class so that JSON can serialize and deserialize
-            </summary>
-        </member>
-        <member name="T:Auth.Model.SubRate">
-            <summary>
-            The rate is the main object at this point
-            this will carry oll the information needed
-            </summary>
-        </member>
-        <member name="T:Auth.Model.SummayRates">
-            <summary>
-            Has not been implemented yet but will hold all the summary elements returned form TaxJar
-            </summary>
-        </member>
-        <member name="T:Auth.Model.TaxCalculationItemEvent">
-            <summary>
-            This is the data object responsible for transporting and storing the
-            calculated results from the api calls
-            </summary>
-        </member>
-        <member name="T:Auth.Model.TaxItemEvent">
-            <summary>
-            Tax Item information for DB storage for possible later
-            statistical analysis.
-            </summary>
         </member>
         <member name="T:TaxJar.Microservice.DataAccess.ApiHelper.HttpClientSingleton">
             <summary>
