@@ -48,11 +48,6 @@ namespace Auth.Model
             public double rate { get; set; }
         }
 
-
-
-        
-
-
     }
     
 }

@@ -25,5 +25,19 @@ namespace Auth.Model
         }
         public string Pasword { get; set;}
         public AuthLevel AutheticationLevel { get; set;}
+        public string SSN { get; set;}
+        public DateTime DOB { get; set; }
+        
+
     }
+
+    public class Addresses
+    {
+        public string Street { get; set; }
+        public string Country { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
+        public string Zip { get; set; }
+    }
+
 }

@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "Auth.csproj", "{E1E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxAPITest", "..\TaxAPITest\TaxAPITest.csproj", "{A28AE033-21EF-4948-ACB8-4A470DAFD3DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll", "..\Payroll\Payroll.csproj", "{2CACFCAD-137D-4E84-8AB8-62BA58C14848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankInteract", "..\BankInteract\BankInteract.csproj", "{7DA52BF6-3D44-4F77-A58D-9D58B21A7B85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A28AE033-21EF-4948-ACB8-4A470DAFD3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A28AE033-21EF-4948-ACB8-4A470DAFD3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A28AE033-21EF-4948-ACB8-4A470DAFD3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CACFCAD-137D-4E84-8AB8-62BA58C14848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CACFCAD-137D-4E84-8AB8-62BA58C14848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CACFCAD-137D-4E84-8AB8-62BA58C14848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CACFCAD-137D-4E84-8AB8-62BA58C14848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA52BF6-3D44-4F77-A58D-9D58B21A7B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA52BF6-3D44-4F77-A58D-9D58B21A7B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA52BF6-3D44-4F77-A58D-9D58B21A7B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA52BF6-3D44-4F77-A58D-9D58B21A7B85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8171,11 +8171,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\patri\\source\\repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
+      "projectUniqueName": "E:\\TaxAPI\\TaxAPITest\\TaxAPITest.csproj",
       "projectName": "TaxAPITest",
-      "projectPath": "C:\\Users\\patri\\source\\repos\\ApiDemo\\TaxAPITest\\TaxAPITest.csproj",
+      "projectPath": "E:\\TaxAPI\\TaxAPITest\\TaxAPITest.csproj",
       "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\patri\\source\\repos\\ApiDemo\\TaxAPITest\\obj\\",
+      "outputPath": "E:\\TaxAPI\\TaxAPITest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -8194,9 +8194,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\patri\\source\\repos\\ApiDemo\\Auth\\Auth.csproj": {
-              "projectPath": "C:\\Users\\patri\\source\\repos\\ApiDemo\\Auth\\Auth.csproj"
+            "E:\\TaxAPI\\Auth\\Auth.csproj": {
+              "projectPath": "E:\\TaxAPI\\Auth\\Auth.csproj"
             }
           }
         }
@@ -8209,6 +8210,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "MSTest.TestAdapter": {
             "target": "Package",
@@ -8253,7 +8255,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
