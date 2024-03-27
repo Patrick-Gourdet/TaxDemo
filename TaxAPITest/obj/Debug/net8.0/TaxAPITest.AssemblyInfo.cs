@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaxAPITest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90b4701a889f7652ba6a5c7223f4995266eff889")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fa18cc969e37dd0e017ef6d5dad0e857a65107d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaxAPITest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaxAPITest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
