@@ -1,0 +1,113 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+      <TargetFramework>net8.0</TargetFramework>
+      <UserSecretsId>71e13e64-cb72-44ae-a9ba-f22448035b35</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <ApplicationIcon>newonyx.ico</ApplicationIcon>
+    <StartupObject>Auth.Program</StartupObject>
+  </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DockerfileFile>Dockerfile</DockerfileFile>
+        <DockerImageLabels>api_demo_service</DockerImageLabels>
+        <DockerfileContext>.</DockerfileContext>
+        <DockerfileRunArguments>-v $(pwd)/host-folder:/container-folder:ro</DockerfileRunArguments>
+        <!-- Set `docker build` arguments to add a custom tag -->
+        <DockerfileBuildArguments>-t pgourdet/apidemo:v2.0</DockerfileBuildArguments>
+    </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Auth.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\swagger\ui\doc.js" />
+    <Content Remove="wwwroot\swagger\ui\favicon.png" />
+    <Content Remove="wwwroot\swagger\ui\index.html" />
+    <Content Remove="wwwroot\swagger\ui\Iron-Financials-TaxApi.json" />
+    <Content Remove="wwwroot\swagger\ui\oauth2-redirect.html" />
+    <Content Remove="wwwroot\swagger\ui\swagger-ui-bundle.js" />
+    <Content Remove="wwwroot\swagger\ui\swagger-ui-es-bundle-core.js" />
+    <Content Remove="wwwroot\swagger\ui\swagger-ui-es-bundle.js" />
+    <Content Remove="wwwroot\swagger\ui\swagger-ui-standalone-preset.js" />
+    <Content Remove="wwwroot\swagger\ui\swagger-ui.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\swagger\ui\doc.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\favicon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\oauth2-redirect.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\swagger-ui-bundle.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\swagger-ui-es-bundle-core.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\swagger-ui-es-bundle.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\swagger-ui-standalone-preset.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\swagger-ui.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\swagger-ui.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\swagger\ui\Iron-Financials-TaxApi.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
+	  <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="3.1.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="3.1.8" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+	  <PackageReference Include="Moq" Version="4.14.5" />
+	  <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.0.4" />
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
+
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+
+	  <PackageReference Include="Vsxmd" Version="1.4.5">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <File Include=".\AuthDbLite.db" />
+	  <File Include=".\TaxDbLite.db" />
+	  <File Include=".\CalcDbLite.db" />
+	  <File Include=".\ApicDbLite.db" />
+
+	  <File Include=".\README.md" />
+
+  </ItemGroup>
+
+
+</Project>

@@ -49,7 +49,7 @@ namespace Auth.Controllers
             _logger = tc;
         }
         /// <summary>
-        /// hash obtained from the password to retrieve the API Key to make
+        /// Hash obtained from the password to retrieve the API Key to make
         /// </summary>
         /// <param name="query"></param>
         /// <param name="zip"></param>

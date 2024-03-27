@@ -41,26 +41,7 @@ namespace Auth.Business
            
             return  await calculateAsync;
         }
-        public async Task<TaxCalculationItemEvent> CalculatedTax(RatesRate item, decimal amount)
-        {
-          
-            var calculated = Convert.ToDecimal(item.rate.combined_rate) * amount + 0.00m;
-            var calculateAsync = Task.Run( () =>
-            {
-                return new TaxCalculationItemEvent()
-                {
-                    TaxId = Guid.NewGuid(),
-                    Amount = amount,
-                    CalcId = Guid.NewGuid(),
-                    CalculatedAmount = calculated,
-                    CreatedDate = DateTime.Now,
-                    Percent = Convert.ToDecimal(item.rate.combined_rate)
-                };
 
-            });
-           
-            return  await calculateAsync;
-        }
         //Arizona
         //    California*
         //Illinois
