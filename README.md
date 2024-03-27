@@ -1,4 +1,6 @@
 C# DOT NET
+Upgraded Project to .NET 8 CORE
+I still need to update various packages but they have breaking changes particularly in the Auth Process. 
 
 The MOQ setup is under construction
 <a href="https://patrick-gourdet.github.io/TaxDemo/" /><h1>GITHUB Pages for TAX API</h1> <<< Follow Link above >>></a>
