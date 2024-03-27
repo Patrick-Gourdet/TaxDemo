@@ -1,5 +1,4 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
@@ -15,7 +14,7 @@ COPY ["TaxDemo/TaxDbLite.db", "TaxDemo/"]
 COPY ["TaxDemo/CalcDbLite.db", "TaxDemo/"]
 COPY ["TaxDemo/AuthDbLite.db", "TaxDemo/"]
 COPY ["TaxDemo/README.md", "TaxDemo/"]
-RUN dotnet restore "Auth/TaxDemo.csproj"
+RUN dotnet restore "TaxDemo/TaxDemo.csproj"
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "TaxDemo/TaxDemo.csproj" -c Release -o /app/build
