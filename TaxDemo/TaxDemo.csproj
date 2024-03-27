@@ -72,6 +72,7 @@
 
   <ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
 	  <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
 
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
@@ -88,7 +89,6 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
 	  <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
-	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
 	  <PackageReference Include="Moq" Version="4.14.5" />
 	  <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.0.4" />
