@@ -4,10 +4,10 @@
 // Email: patrick.g.reinhard@ironfinancials.com
 // Date: 09/11/2020
 ///////////////////////////////////////////////////////////////////////////////////////////////
-using Auth.Model;
+using TaxDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess.Contexts
+namespace TaxDemo.DataAccess.Contexts
 {
     /// <summary>
     /// This is the TaxJar interaction interface

@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using Auth.DataAccess.Contexts;
-using Auth.DataAccess.InterfaceContexts;
-using Auth.Model;
+using TaxDemo.DataAccess.Contexts;
+using TaxDemo.DataAccess.InterfaceContexts;
+using TaxDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess
+namespace TaxDemo.DataAccess
 {
     /// <summary>
     /// Calculation Db access

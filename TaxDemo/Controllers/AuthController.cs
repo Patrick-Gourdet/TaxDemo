@@ -11,14 +11,14 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Auth.DataAccess.InterfaceContexts;
-using Auth.Model;
+using TaxDemo.DataAccess.InterfaceContexts;
+using TaxDemo.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Auth.Controllers
+namespace TaxDemo.Controllers
 {
     /// <summary>
     /// Authentication API Access for Gateway authentication method

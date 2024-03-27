@@ -9,13 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Auth.DataAccess.Contexts;
-using Auth.DataAccess.InterfaceContexts;
-using Auth.Model;
+using TaxDemo.DataAccess.Contexts;
+using TaxDemo.DataAccess.InterfaceContexts;
+using TaxDemo.Model;
 using Microsoft.EntityFrameworkCore;
 using TaxJar.Microservice.DataAccess;
 
-namespace Auth.DataAccess
+namespace TaxDemo.DataAccess
 {
     /// <summary>
     /// Main context hub

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.Model
+namespace TaxDemo.Model
 {
     /// <summary>
     /// Smaller dto as to not expose the hash fields to a user

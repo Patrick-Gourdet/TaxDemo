@@ -7,7 +7,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Auth.Model
+namespace TaxDemo.Model
 {
     /// <summary>
     /// Base APi DB element for data interactions

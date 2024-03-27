@@ -6,9 +6,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 using System;
 using System.Threading.Tasks;
-using Auth.Model;
+using TaxDemo.Model;
 
-namespace Auth.Business
+namespace TaxDemo.Business
 {
     /// <summary>
     /// Calculate the tax for an order using taxjar 

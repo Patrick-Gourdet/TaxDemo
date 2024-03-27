@@ -1,28 +1,30 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 80    
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-bullseye-slim AS build 
 WORKDIR /src
-COPY ["Auth/Auth.csproj", "Auth/"]
-COPY ["Auth/Auth.xml", "Auth/"]
-COPY ["Auth/ApiDbLite.db", "Auth/"]
-COPY ["Auth/TaxDbLite.db", "Auth/"]
-COPY ["Auth/CalcDbLite.db", "Auth/"]
-COPY ["Auth/AuthDbLite.db", "Auth/"]
-COPY ["Auth/README.md", "Auth/"]
-RUN dotnet restore "Auth/Auth.csproj"
+COPY ["TaxDemo/TaxDemo.csproj", "TaxDemo/"]
+COPY ["TaxDemo/TaxDemo.xml", "TaxDemo/"]
+COPY ["TaxDemo/ApiDbLite.db", "TaxDemo/"]
+COPY ["TaxDemo/TaxDbLite.db", "TaxDemo/"]
+COPY ["TaxDemo/CalcDbLite.db", "TaxDemo/"]
+COPY ["TaxDemo/AuthDbLite.db", "TaxDemo/"]
+COPY ["TaxDemo/README.md", "TaxDemo/"]
+RUN dotnet restore "Auth/TaxDemo.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "Auth/Auth.csproj" -c Release -o /app/build
+RUN dotnet build "TaxDemo/TaxDemo.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Auth/Auth.csproj" -c Release -o /app/publish
+RUN dotnet publish "TaxDemo/TaxDemo.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Auth/Auth.dll"]
+ENTRYPOINT ["dotnet", "TaxDemo/TaxDemo.dll"]
+

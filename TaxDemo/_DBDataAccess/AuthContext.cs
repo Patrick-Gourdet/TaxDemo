@@ -9,12 +9,12 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Auth.DataAccess.Contexts;
-using Auth.DataAccess.InterfaceContexts;
-using Auth.Model;
+using TaxDemo.DataAccess.Contexts;
+using TaxDemo.DataAccess.InterfaceContexts;
+using TaxDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess
+namespace TaxDemo.DataAccess
 {
     public class AuthContext:  IAuthContext
     {
@@ -22,6 +22,7 @@ namespace Auth.DataAccess
         public AuthContext(DataContext context)
         {
             _context = context;
+            
         }
         
         public async Task<AuthModel> Login(string username, string password)
@@ -30,7 +31,7 @@ namespace Auth.DataAccess
         }
         private async Task<AuthModel> LoginCall(string username, string password)
         {
-            var user = await _context.auth.FirstOrDefaultAsync(res => res.Username == username);
+            var user = await _context.Auth.FirstOrDefaultAsync(res => res.Username == username);
             if (user == null)
                 return null;
 
@@ -62,7 +63,7 @@ namespace Auth.DataAccess
         }
         private async Task<string> GetUserHashApi(string username,string password)
         {
-            var user = await _context.auth.FirstOrDefaultAsync(res => res.Username == username);
+            var user = await _context.Auth.FirstOrDefaultAsync(res => res.Username == username);
             if (user == null)
                 return "NO ACCESS";
             return user.PasswordHash.ToString();
@@ -82,7 +83,7 @@ namespace Auth.DataAccess
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
             user.AutheticationLevel = AuthLevel.AuthLevelOmega;
-            await _context.auth.AddAsync(user);
+            await _context.Auth.AddAsync(user);
             await _context.SaveChangesAsync();
 
             return user;
@@ -96,12 +97,12 @@ namespace Auth.DataAccess
         /// <returns></returns>
         public async Task<AuthModel> Update(AuthModel userToUpdate,string username, string password)
         {
-            var user = await _context.auth.FirstOrDefaultAsync(res => res.Username == username);
+            var user = await _context.Auth.FirstOrDefaultAsync(res => res.Username == username);
             
             if (user == null) return null;
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) return null;
                
-            var userUpdate = await _context.auth.FirstOrDefaultAsync(res => res.UserId == userToUpdate.UserId);
+            var userUpdate = await _context.Auth.FirstOrDefaultAsync(res => res.UserId == userToUpdate.UserId);
             
             if(user.UserId != userToUpdate.UserId && user.AutheticationLevel < AuthLevel.AuthLevelPrime) return null;              
             if(userUpdate.Username != userToUpdate.Username)
@@ -135,7 +136,7 @@ namespace Auth.DataAccess
         /// <returns></returns>
         public async Task<bool> UserExists(string username)
         {
-            if (await _context.auth.AnyAsync(res => res.Username == username))
+            if (await _context.Auth.AnyAsync(res => res.Username == username))
                 return true;
             return false;
         }

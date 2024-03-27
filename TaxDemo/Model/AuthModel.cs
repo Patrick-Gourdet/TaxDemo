@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Auth.Model
+namespace TaxDemo.Model
 {
     /// <summary>
     /// Main authentication model to find authorization levels

@@ -3,12 +3,12 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Text;
-using Auth.ApiDataAccess;
-using Auth.Business;
-using Auth.DataAccess.Contexts;
-using Auth.DataAccess.InterfaceContexts;
-using Auth.DataAccess;
-using Auth.Extention;
+using TaxDemo.ApiDataAccess;
+using TaxDemo.Business;
+using TaxDemo.DataAccess.Contexts;
+using TaxDemo.DataAccess.InterfaceContexts;
+using TaxDemo.DataAccess;
+using TaxDemo.Extention;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -24,7 +24,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
-namespace Auth
+namespace TaxDemo
 {
     public class Startup
     {
@@ -117,7 +117,7 @@ namespace Auth
                         Url = new Uri("https://linkedin.com/patrickgourdet"),
                     },
                 });
-                var xmlPath = "./Auth.xml";
+                var xmlPath = "./TaxDemo.xml";
                 s.IncludeXmlComments(xmlPath);
             });
 

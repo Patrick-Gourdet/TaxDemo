@@ -7,7 +7,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Auth.Model
+namespace TaxDemo.Model
 {
     /// <summary>
     /// This is the data object responsible for transporting and storing the

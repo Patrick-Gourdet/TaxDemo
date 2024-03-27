@@ -8,7 +8,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Auth.Model
+namespace TaxDemo.Model
 {
     /// <summary>
     /// Has not been implemented yet but will hold all the summary elements returned form TaxJar

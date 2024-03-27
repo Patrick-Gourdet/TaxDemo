@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 using Microsoft.AspNetCore.Http;
 
-namespace Auth.Extention
+namespace TaxDemo.Extention
 {
     /// <summary>
     /// Extenstion method  for the Http response to return the error messages 

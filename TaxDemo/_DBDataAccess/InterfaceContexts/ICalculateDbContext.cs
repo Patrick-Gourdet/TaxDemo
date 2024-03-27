@@ -6,9 +6,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Auth.Model;
+using TaxDemo.Model;
 
-namespace Auth.DataAccess.InterfaceContexts
+namespace TaxDemo.DataAccess.InterfaceContexts
 {
     /// <summary>
     /// Calculator class interface

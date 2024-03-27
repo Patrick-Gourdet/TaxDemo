@@ -8,16 +8,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Auth.ApiDataAccess;
-using Auth.Business;
-using Auth.DataAccess.InterfaceContexts;
-using Auth.Model;
+using TaxDemo.ApiDataAccess;
+using TaxDemo.Business;
+using TaxDemo.DataAccess.InterfaceContexts;
+using TaxDemo.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Auth.Controllers
+namespace TaxDemo.Controllers
 {
     /// <summary>
     /// gives access to the calculated DB

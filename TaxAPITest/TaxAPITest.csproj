@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Auth\TaxDemo.csproj" />
+    <ProjectReference Include="..\TaxDemo\TaxDemo.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,10 +4,10 @@
 /// Date: 08/28/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-using Auth.Model;
+using TaxDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess.Contexts
+namespace TaxDemo.DataAccess.Contexts
 {
     public class DataContextApi : DbContext
     {

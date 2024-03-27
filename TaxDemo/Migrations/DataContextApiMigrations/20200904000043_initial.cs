@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Auth.Migrations.DataContextApiMigrations
+namespace TaxDemo.Migrations.DataContextApiMigrations
 {
     public partial class initial : Migration
     {

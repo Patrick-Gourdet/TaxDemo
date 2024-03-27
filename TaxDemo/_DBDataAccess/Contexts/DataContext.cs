@@ -4,16 +4,16 @@
 /// Date: 08/28/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-using Auth.Model;
+using TaxDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess.Contexts
+namespace TaxDemo.DataAccess.Contexts
 {
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) {}
    
-        public DbSet<AuthModel> auth { get; set; }
+        public DbSet<AuthModel> Auth { get; set; }
 
     }
 }

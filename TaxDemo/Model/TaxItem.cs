@@ -7,7 +7,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Auth.Model
+namespace TaxDemo.Model
 {
     /// <summary>
     /// Tax Item information for DB storage for possible later

@@ -7,11 +7,11 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Auth.DataAccess.Contexts;
-using Auth.DataAccess.InterfaceContexts;
-using Auth.Model;
+using TaxDemo.DataAccess.Contexts;
+using TaxDemo.DataAccess.InterfaceContexts;
+using TaxDemo.Model;
 
-namespace Auth.DataAccess
+namespace TaxDemo.DataAccess
 {
     /// <summary>
     /// Api Database Access to obtain the API key using authenticated user

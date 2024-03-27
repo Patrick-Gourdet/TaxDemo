@@ -5,9 +5,9 @@
 // Date: 09/11/2020
 ///////////////////////////////////////////////////////////////////////////////////////////////
 using System.Threading.Tasks;
-using Auth.Model;
+using TaxDemo.Model;
 
-namespace Auth.ApiDataAccess
+namespace TaxDemo.ApiDataAccess
 {
     /// <summary>
     /// Access to base tax-rates for any order this can be expanded to

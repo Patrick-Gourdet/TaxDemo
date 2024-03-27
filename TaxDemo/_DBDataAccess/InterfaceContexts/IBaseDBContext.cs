@@ -5,9 +5,9 @@
 // Date: 09/11/2020
 ///////////////////////////////////////////////////////////////////////////////////////////////
 using System.Threading.Tasks;
-using Auth.Model;
+using TaxDemo.Model;
 
-namespace Auth.DataAccess.InterfaceContexts
+namespace TaxDemo.DataAccess.InterfaceContexts
 {
     /// <summary>
     /// This is the base interface for the DB access functions

@@ -4,10 +4,10 @@
 /// Date: 09/03/2020
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-using Auth.Model;
+using TaxDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Auth.DataAccess.Contexts
+namespace TaxDemo.DataAccess.Contexts
 {
     /// <summary>
     /// Calculator Interface implements Save To Sqlite DB

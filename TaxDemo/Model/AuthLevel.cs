@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Auth.Model
+namespace TaxDemo.Model
 {
     /// <summary>
     /// This is the authorization levels for an employee

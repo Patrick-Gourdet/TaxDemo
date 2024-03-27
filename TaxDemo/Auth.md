@@ -1,42 +1,42 @@
 <a name='assembly'></a>
-# Auth
+# TaxDemo
 
 ## Contents
 
-- [ApiDbContext](#T-Auth-DataAccess-ApiDbContext 'Auth.DataAccess.ApiDbContext')
-  - [#ctor(context)](#M-Auth-DataAccess-ApiDbContext-#ctor-Auth-DataAccess-Contexts-DataContextApi- 'Auth.DataAccess.ApiDbContext.#ctor(Auth.DataAccess.Contexts.DataContextApi)')
-  - [GetApiKey(apiName,compareHash)](#M-Auth-DataAccess-ApiDbContext-GetApiKey-System-String,System-Byte[]- 'Auth.DataAccess.ApiDbContext.GetApiKey(System.String,System.Byte[])')
-  - [SaveChanges(apiName,apiKeyToSave,compareHash)](#M-Auth-DataAccess-ApiDbContext-SaveChanges-Auth-Model-ApiDbItem- 'Auth.DataAccess.ApiDbContext.SaveChanges(Auth.Model.ApiDbItem)')
-- [ApiDbItem](#T-Auth-Model-ApiDbItem 'Auth.Model.ApiDbItem')
-- [AuthContext](#T-Auth-DataAccess-AuthContext 'Auth.DataAccess.AuthContext')
-  - [GetUserHash(username)](#M-Auth-DataAccess-AuthContext-GetUserHash-System-String,System-String- 'Auth.DataAccess.AuthContext.GetUserHash(System.String,System.String)')
-  - [Register(user,password)](#M-Auth-DataAccess-AuthContext-Register-Auth-Model-AuthModel,System-String- 'Auth.DataAccess.AuthContext.Register(Auth.Model.AuthModel,System.String)')
-  - [Update(userToUpdate,username,password)](#M-Auth-DataAccess-AuthContext-Update-Auth-Model-AuthModel,System-String,System-String- 'Auth.DataAccess.AuthContext.Update(Auth.Model.AuthModel,System.String,System.String)')
-  - [UserExists(username)](#M-Auth-DataAccess-AuthContext-UserExists-System-String- 'Auth.DataAccess.AuthContext.UserExists(System.String)')
-- [AuthController](#T-Auth-Controllers-AuthController 'Auth.Controllers.AuthController')
-  - [#ctor(repo,config,logger)](#M-Auth-Controllers-AuthController-#ctor-Auth-DataAccess-InterfaceContexts-IAuthContext,Auth-DataAccess-InterfaceContexts-IApiDbContext,Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILogger{Auth-Controllers-AuthController}- 'Auth.Controllers.AuthController.#ctor(Auth.DataAccess.InterfaceContexts.IAuthContext,Auth.DataAccess.InterfaceContexts.IApiDbContext,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.AuthController})')
-  - [Login(user)](#M-Auth-Controllers-AuthController-Login-Auth-Model-AuthRegisterDto- 'Auth.Controllers.AuthController.Login(Auth.Model.AuthRegisterDto)')
-  - [Register(newUser)](#M-Auth-Controllers-AuthController-Register-Auth-Model-AuthRegisterDto- 'Auth.Controllers.AuthController.Register(Auth.Model.AuthRegisterDto)')
-  - [SaveApi(apikey,apiName,authorized)](#M-Auth-Controllers-AuthController-SaveApi-System-String,System-String,System-String,System-String- 'Auth.Controllers.AuthController.SaveApi(System.String,System.String,System.String,System.String)')
-  - [UserExists(user)](#M-Auth-Controllers-AuthController-UserExists-Auth-Model-AuthRegisterDto- 'Auth.Controllers.AuthController.UserExists(Auth.Model.AuthRegisterDto)')
-- [AuthLevel](#T-Auth-Model-AuthLevel 'Auth.Model.AuthLevel')
-- [AuthModel](#T-Auth-Model-AuthModel 'Auth.Model.AuthModel')
-- [AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'Auth.Model.AuthRegisterDto')
-- [Calculate](#T-Auth-Business-Calculate 'Auth.Business.Calculate')
-  - [CalculatedTax(item,amount)](#M-Auth-Business-Calculate-CalculatedTax-Auth-Model-RatesRate,System-Decimal- 'Auth.Business.Calculate.CalculatedTax(Auth.Model.RatesRate,System.Decimal)')
-- [CalculationsController](#T-Auth-Controllers-CalculationsController 'Auth.Controllers.CalculationsController')
-  - [#ctor(t)](#M-Auth-Controllers-CalculationsController-#ctor-Auth-DataAccess-InterfaceContexts-IAuthContext,Auth-ApiDataAccess-ICalculatorApiAccessor,Auth-DataAccess-InterfaceContexts-ICalculateDbContext,Microsoft-Extensions-Logging-ILogger{Auth-Controllers-CalculationsController},Auth-Business-ICalculate- 'Auth.Controllers.CalculationsController.#ctor(Auth.DataAccess.InterfaceContexts.IAuthContext,Auth.ApiDataAccess.ICalculatorApiAccessor,Auth.DataAccess.InterfaceContexts.ICalculateDbContext,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.CalculationsController},Auth.Business.ICalculate)')
-  - [Get(amount,zip,user,password)](#M-Auth-Controllers-CalculationsController-Get-System-Decimal,System-String,System-String,System-String- 'Auth.Controllers.CalculationsController.Get(System.Decimal,System.String,System.String,System.String)')
-  - [Get(amount,query,apiname,user,password)](#M-Auth-Controllers-CalculationsController-Get-System-String,System-String,System-String,System-String,System-String- 'Auth.Controllers.CalculationsController.Get(System.String,System.String,System.String,System.String,System.String)')
-  - [Get(user,password)](#M-Auth-Controllers-CalculationsController-Get-System-String,System-String- 'Auth.Controllers.CalculationsController.Get(System.String,System.String)')
-- [CalculatorDbContext](#T-Auth-DataAccess-CalculatorDbContext 'Auth.DataAccess.CalculatorDbContext')
-  - [#ctor(context)](#M-Auth-DataAccess-CalculatorDbContext-#ctor-Auth-DataAccess-Contexts-DataContextCalc- 'Auth.DataAccess.CalculatorDbContext.#ctor(Auth.DataAccess.Contexts.DataContextCalc)')
-- [CalculatorTaxTatesAPIAccessor](#T-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor 'Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor')
-  - [#ctor(contex)](#M-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor-#ctor-Auth-DataAccess-Contexts-DataContextApi- 'Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor.#ctor(Auth.DataAccess.Contexts.DataContextApi)')
-  - [GetOrderTaxRate()](#M-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor-GetOrderTaxRate-System-String,System-String,System-Byte[]- 'Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])')
-  - [GetTaxInfo(action)](#M-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor-GetTaxInfo-Auth-Model-RatesRate- 'Auth.ApiDataAccess.CalculatorTaxTatesAPIAccessor.GetTaxInfo(Auth.Model.RatesRate)')
-- [DataContextCalc](#T-Auth-DataAccess-Contexts-DataContextCalc 'Auth.DataAccess.Contexts.DataContextCalc')
-- [DataContextTax](#T-Auth-DataAccess-Contexts-DataContextTax 'Auth.DataAccess.Contexts.DataContextTax')
+- [ApiDbContext](#T-Auth-DataAccess-ApiDbContext 'TaxDemo.DataAccess.ApiDbContext')
+  - [#ctor(context)](#M-Auth-DataAccess-ApiDbContext-#ctor-Auth-DataAccess-Contexts-DataContextApi- 'TaxDemo.DataAccess.ApiDbContext.#ctor(TaxDemo.DataAccess.Contexts.DataContextApi)')
+  - [GetApiKey(apiName,compareHash)](#M-Auth-DataAccess-ApiDbContext-GetApiKey-System-String,System-Byte[]- 'TaxDemo.DataAccess.ApiDbContext.GetApiKey(System.String,System.Byte[])')
+  - [SaveChanges(apiName,apiKeyToSave,compareHash)](#M-Auth-DataAccess-ApiDbContext-SaveChanges-Auth-Model-ApiDbItem- 'TaxDemo.DataAccess.ApiDbContext.SaveChanges(TaxDemo.Model.ApiDbItem)')
+- [ApiDbItem](#T-Auth-Model-ApiDbItem 'TaxDemo.Model.ApiDbItem')
+- [AuthContext](#T-Auth-DataAccess-AuthContext 'TaxDemo.DataAccess.AuthContext')
+  - [GetUserHash(username)](#M-Auth-DataAccess-AuthContext-GetUserHash-System-String,System-String- 'TaxDemo.DataAccess.AuthContext.GetUserHash(System.String,System.String)')
+  - [Register(user,password)](#M-Auth-DataAccess-AuthContext-Register-Auth-Model-AuthModel,System-String- 'TaxDemo.DataAccess.AuthContext.Register(TaxDemo.Model.AuthModel,System.String)')
+  - [Update(userToUpdate,username,password)](#M-Auth-DataAccess-AuthContext-Update-Auth-Model-AuthModel,System-String,System-String- 'TaxDemo.DataAccess.AuthContext.Update(TaxDemo.Model.AuthModel,System.String,System.String)')
+  - [UserExists(username)](#M-Auth-DataAccess-AuthContext-UserExists-System-String- 'TaxDemo.DataAccess.AuthContext.UserExists(System.String)')
+- [AuthController](#T-Auth-Controllers-AuthController 'TaxDemo.Controllers.AuthController')
+  - [#ctor(repo,config,logger)](#M-Auth-Controllers-AuthController-#ctor-Auth-DataAccess-InterfaceContexts-IAuthContext,Auth-DataAccess-InterfaceContexts-IApiDbContext,Microsoft-Extensions-Configuration-IConfiguration,Microsoft-Extensions-Logging-ILogger{Auth-Controllers-AuthController}- 'TaxDemo.Controllers.AuthController.#ctor(TaxDemo.DataAccess.InterfaceContexts.IAuthContext,TaxDemo.DataAccess.InterfaceContexts.IApiDbContext,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{TaxDemo.Controllers.AuthController})')
+  - [Login(user)](#M-Auth-Controllers-AuthController-Login-Auth-Model-AuthRegisterDto- 'TaxDemo.Controllers.AuthController.Login(TaxDemo.Model.AuthRegisterDto)')
+  - [Register(newUser)](#M-Auth-Controllers-AuthController-Register-Auth-Model-AuthRegisterDto- 'TaxDemo.Controllers.AuthController.Register(TaxDemo.Model.AuthRegisterDto)')
+  - [SaveApi(apikey,apiName,authorized)](#M-Auth-Controllers-AuthController-SaveApi-System-String,System-String,System-String,System-String- 'TaxDemo.Controllers.AuthController.SaveApi(System.String,System.String,System.String,System.String)')
+  - [UserExists(user)](#M-Auth-Controllers-AuthController-UserExists-Auth-Model-AuthRegisterDto- 'TaxDemo.Controllers.AuthController.UserExists(TaxDemo.Model.AuthRegisterDto)')
+- [AuthLevel](#T-Auth-Model-AuthLevel 'TaxDemo.Model.AuthLevel')
+- [AuthModel](#T-Auth-Model-AuthModel 'TaxDemo.Model.AuthModel')
+- [AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'TaxDemo.Model.AuthRegisterDto')
+- [Calculate](#T-Auth-Business-Calculate 'TaxDemo.Business.Calculate')
+  - [CalculatedTax(item,amount)](#M-Auth-Business-Calculate-CalculatedTax-Auth-Model-RatesRate,System-Decimal- 'TaxDemo.Business.Calculate.CalculatedTax(TaxDemo.Model.RatesRate,System.Decimal)')
+- [CalculationsController](#T-Auth-Controllers-CalculationsController 'TaxDemo.Controllers.CalculationsController')
+  - [#ctor(t)](#M-Auth-Controllers-CalculationsController-#ctor-Auth-DataAccess-InterfaceContexts-IAuthContext,Auth-ApiDataAccess-ICalculatorApiAccessor,Auth-DataAccess-InterfaceContexts-ICalculateDbContext,Microsoft-Extensions-Logging-ILogger{Auth-Controllers-CalculationsController},Auth-Business-ICalculate- 'TaxDemo.Controllers.CalculationsController.#ctor(TaxDemo.DataAccess.InterfaceContexts.IAuthContext,TaxDemo.ApiDataAccess.ICalculatorApiAccessor,TaxDemo.DataAccess.InterfaceContexts.ICalculateDbContext,Microsoft.Extensions.Logging.ILogger{TaxDemo.Controllers.CalculationsController},TaxDemo.Business.ICalculate)')
+  - [Get(amount,zip,user,password)](#M-Auth-Controllers-CalculationsController-Get-System-Decimal,System-String,System-String,System-String- 'TaxDemo.Controllers.CalculationsController.Get(System.Decimal,System.String,System.String,System.String)')
+  - [Get(amount,query,apiname,user,password)](#M-Auth-Controllers-CalculationsController-Get-System-String,System-String,System-String,System-String,System-String- 'TaxDemo.Controllers.CalculationsController.Get(System.String,System.String,System.String,System.String,System.String)')
+  - [Get(user,password)](#M-Auth-Controllers-CalculationsController-Get-System-String,System-String- 'TaxDemo.Controllers.CalculationsController.Get(System.String,System.String)')
+- [CalculatorDbContext](#T-Auth-DataAccess-CalculatorDbContext 'TaxDemo.DataAccess.CalculatorDbContext')
+  - [#ctor(context)](#M-Auth-DataAccess-CalculatorDbContext-#ctor-Auth-DataAccess-Contexts-DataContextCalc- 'TaxDemo.DataAccess.CalculatorDbContext.#ctor(TaxDemo.DataAccess.Contexts.DataContextCalc)')
+- [CalculatorTaxTatesAPIAccessor](#T-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor 'TaxDemo.ApiDataAccess.CalculatorTaxTatesAPIAccessor')
+  - [#ctor(contex)](#M-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor-#ctor-Auth-DataAccess-Contexts-DataContextApi- 'TaxDemo.ApiDataAccess.CalculatorTaxTatesAPIAccessor.#ctor(TaxDemo.DataAccess.Contexts.DataContextApi)')
+  - [GetOrderTaxRate()](#M-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor-GetOrderTaxRate-System-String,System-String,System-Byte[]- 'TaxDemo.ApiDataAccess.CalculatorTaxTatesAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])')
+  - [GetTaxInfo(action)](#M-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor-GetTaxInfo-Auth-Model-RatesRate- 'TaxDemo.ApiDataAccess.CalculatorTaxTatesAPIAccessor.GetTaxInfo(TaxDemo.Model.RatesRate)')
+- [DataContextCalc](#T-Auth-DataAccess-Contexts-DataContextCalc 'TaxDemo.DataAccess.Contexts.DataContextCalc')
+- [DataContextTax](#T-Auth-DataAccess-Contexts-DataContextTax 'TaxDemo.DataAccess.Contexts.DataContextTax')
 - [HttpClientSingleton](#T-TaxJar-Microservice-DataAccess-ApiHelper-HttpClientSingleton 'TaxJar.Microservice.DataAccess.ApiHelper.HttpClientSingleton')
   - [TaxClient](#P-TaxJar-Microservice-DataAccess-ApiHelper-HttpClientSingleton-TaxClient 'TaxJar.Microservice.DataAccess.ApiHelper.HttpClientSingleton.TaxClient')
   - [Dispose()](#M-TaxJar-Microservice-DataAccess-ApiHelper-HttpClientSingleton-Dispose 'TaxJar.Microservice.DataAccess.ApiHelper.HttpClientSingleton.Dispose')
@@ -50,53 +50,53 @@
   - [SetHeaders(apiKeyTitle,internalKey)](#M-TaxJar-Microservice-DataAccess-ApiHelper-HttpClientSingleton-SetHeaders-System-String,System-String- 'TaxJar.Microservice.DataAccess.ApiHelper.HttpClientSingleton.SetHeaders(System.String,System.String)')
   - [SetHeaders(headers)](#M-TaxJar-Microservice-DataAccess-ApiHelper-HttpClientSingleton-SetHeaders-System-Collections-Generic-Dictionary{System-String,System-String}- 'TaxJar.Microservice.DataAccess.ApiHelper.HttpClientSingleton.SetHeaders(System.Collections.Generic.Dictionary{System.String,System.String})')
   - [SetHeadersAccept(key)](#M-TaxJar-Microservice-DataAccess-ApiHelper-HttpClientSingleton-SetHeadersAccept-System-String- 'TaxJar.Microservice.DataAccess.ApiHelper.HttpClientSingleton.SetHeadersAccept(System.String)')
-- [HttpResponceExtention](#T-Auth-Extention-HttpResponceExtention 'Auth.Extention.HttpResponceExtention')
-- [IApiDbContext](#T-Auth-DataAccess-InterfaceContexts-IApiDbContext 'Auth.DataAccess.InterfaceContexts.IApiDbContext')
-  - [GetApiKey(apiName,compareHash)](#M-Auth-DataAccess-InterfaceContexts-IApiDbContext-GetApiKey-System-String,System-Byte[]- 'Auth.DataAccess.InterfaceContexts.IApiDbContext.GetApiKey(System.String,System.Byte[])')
-  - [SaveChanges(item)](#M-Auth-DataAccess-InterfaceContexts-IApiDbContext-SaveChanges-Auth-Model-ApiDbItem- 'Auth.DataAccess.InterfaceContexts.IApiDbContext.SaveChanges(Auth.Model.ApiDbItem)')
-- [IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'Auth.DataAccess.InterfaceContexts.IAuthContext')
-  - [GetUserHash(username,password)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-GetUserHash-System-String,System-String- 'Auth.DataAccess.InterfaceContexts.IAuthContext.GetUserHash(System.String,System.String)')
-  - [Login(user,password)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-Login-System-String,System-String- 'Auth.DataAccess.InterfaceContexts.IAuthContext.Login(System.String,System.String)')
-  - [Register(username,password,address1,address2,city,zip)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-Register-Auth-Model-AuthModel,System-String- 'Auth.DataAccess.InterfaceContexts.IAuthContext.Register(Auth.Model.AuthModel,System.String)')
-  - [UserExists(username)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-UserExists-System-String- 'Auth.DataAccess.InterfaceContexts.IAuthContext.UserExists(System.String)')
-- [IBaseDbContext](#T-Auth-DataAccess-InterfaceContexts-IBaseDbContext 'Auth.DataAccess.InterfaceContexts.IBaseDbContext')
-  - [SaveChanges(item)](#M-Auth-DataAccess-InterfaceContexts-IBaseDbContext-SaveChanges-Auth-Model-TaxCalculationItemEvent- 'Auth.DataAccess.InterfaceContexts.IBaseDbContext.SaveChanges(Auth.Model.TaxCalculationItemEvent)')
-- [ICalculate](#T-Auth-Business-ICalculate 'Auth.Business.ICalculate')
-- [ICalculateDbContext](#T-Auth-DataAccess-InterfaceContexts-ICalculateDbContext 'Auth.DataAccess.InterfaceContexts.ICalculateDbContext')
-- [ICalculatorApiAccessor](#T-Auth-ApiDataAccess-ICalculatorApiAccessor 'Auth.ApiDataAccess.ICalculatorApiAccessor')
-- [ITaxRates](#T-Auth-ApiDataAccess-ITaxRates 'Auth.ApiDataAccess.ITaxRates')
-  - [GetOrderTaxRate(query,apiName,userHash)](#M-Auth-ApiDataAccess-ITaxRates-GetOrderTaxRate-System-String,System-String,System-Byte[]- 'Auth.ApiDataAccess.ITaxRates.GetOrderTaxRate(System.String,System.String,System.Byte[])')
-- [ITaxServiceDbContext](#T-Auth-DataAccess-InterfaceContexts-ITaxServiceDbContext 'Auth.DataAccess.InterfaceContexts.ITaxServiceDbContext')
-- [ITax\`1](#T-Auth-ApiDataAccess-ITax`1 'Auth.ApiDataAccess.ITax`1')
-- [RatesRate](#T-Auth-Model-RatesRate 'Auth.Model.RatesRate')
-- [SubRate](#T-Auth-Model-SubRate 'Auth.Model.SubRate')
-- [SummayRates](#T-Auth-Model-SummayRates 'Auth.Model.SummayRates')
-- [TaxCalculationItemEvent](#T-Auth-Model-TaxCalculationItemEvent 'Auth.Model.TaxCalculationItemEvent')
-- [TaxItemEvent](#T-Auth-Model-TaxItemEvent 'Auth.Model.TaxItemEvent')
-- [TaxRatesByZIPCodeAPIAccessor](#T-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor 'Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor')
-  - [#ctor(dbContext)](#M-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-#ctor-Auth-DataAccess-Contexts-DataContextApi,Auth-DataAccess-Contexts-DataContextTax- 'Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.#ctor(Auth.DataAccess.Contexts.DataContextApi,Auth.DataAccess.Contexts.DataContextTax)')
-  - [_base](#F-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-_base 'Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor._base')
-  - [GetOrderTaxRate(query,apiName,userHash)](#M-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-GetOrderTaxRate-System-String,System-String,System-Byte[]- 'Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])')
-  - [GetTaxInfo(action)](#M-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-GetTaxInfo-Auth-Model-RatesRate- 'Auth.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetTaxInfo(Auth.Model.RatesRate)')
-- [TaxRatesController](#T-Auth-Controllers-TaxRatesController 'Auth.Controllers.TaxRatesController')
-  - [#ctor(t)](#M-Auth-Controllers-TaxRatesController-#ctor-Auth-DataAccess-InterfaceContexts-IAuthContext,Auth-ApiDataAccess-ITaxRates,Auth-DataAccess-InterfaceContexts-ITaxServiceDbContext,Microsoft-Extensions-Logging-ILogger{Auth-Controllers-TaxRatesController}- 'Auth.Controllers.TaxRatesController.#ctor(Auth.DataAccess.InterfaceContexts.IAuthContext,Auth.ApiDataAccess.ITaxRates,Auth.DataAccess.InterfaceContexts.ITaxServiceDbContext,Microsoft.Extensions.Logging.ILogger{Auth.Controllers.TaxRatesController})')
-  - [Get(user,password)](#M-Auth-Controllers-TaxRatesController-Get-System-String,System-String- 'Auth.Controllers.TaxRatesController.Get(System.String,System.String)')
-  - [GetQueriedTaxByFrequency(user,password)](#M-Auth-Controllers-TaxRatesController-GetQueriedTaxByFrequency-System-String,System-String,System-Decimal- 'Auth.Controllers.TaxRatesController.GetQueriedTaxByFrequency(System.String,System.String,System.Decimal)')
-  - [GetTaxInfo(query,zip)](#M-Auth-Controllers-TaxRatesController-GetTaxInfo-System-String,System-String,System-String,System-String- 'Auth.Controllers.TaxRatesController.GetTaxInfo(System.String,System.String,System.String,System.String)')
-  - [GetTaxInfoQuery(query,user,password)](#M-Auth-Controllers-TaxRatesController-GetTaxInfoQuery-System-String,System-String,System-String- 'Auth.Controllers.TaxRatesController.GetTaxInfoQuery(System.String,System.String,System.String)')
-- [TaxServiceDbContext](#T-Auth-DataAccess-TaxServiceDbContext 'Auth.DataAccess.TaxServiceDbContext')
-  - [Correction(id)](#M-Auth-DataAccess-TaxServiceDbContext-Correction-System-String- 'Auth.DataAccess.TaxServiceDbContext.Correction(System.String)')
-  - [GetQueriedTaxByFrequency()](#M-Auth-DataAccess-TaxServiceDbContext-GetQueriedTaxByFrequency 'Auth.DataAccess.TaxServiceDbContext.GetQueriedTaxByFrequency')
-  - [GetTaxItem()](#M-Auth-DataAccess-TaxServiceDbContext-GetTaxItem 'Auth.DataAccess.TaxServiceDbContext.GetTaxItem')
-  - [GetTaxItems()](#M-Auth-DataAccess-TaxServiceDbContext-GetTaxItems 'Auth.DataAccess.TaxServiceDbContext.GetTaxItems')
-  - [SaveChanges()](#M-Auth-DataAccess-TaxServiceDbContext-SaveChanges-Auth-Model-RatesRate- 'Auth.DataAccess.TaxServiceDbContext.SaveChanges(Auth.Model.RatesRate)')
+- [HttpResponceExtention](#T-Auth-Extention-HttpResponceExtention 'TaxDemo.Extention.HttpResponceExtention')
+- [IApiDbContext](#T-Auth-DataAccess-InterfaceContexts-IApiDbContext 'TaxDemo.DataAccess.InterfaceContexts.IApiDbContext')
+  - [GetApiKey(apiName,compareHash)](#M-Auth-DataAccess-InterfaceContexts-IApiDbContext-GetApiKey-System-String,System-Byte[]- 'TaxDemo.DataAccess.InterfaceContexts.IApiDbContext.GetApiKey(System.String,System.Byte[])')
+  - [SaveChanges(item)](#M-Auth-DataAccess-InterfaceContexts-IApiDbContext-SaveChanges-Auth-Model-ApiDbItem- 'TaxDemo.DataAccess.InterfaceContexts.IApiDbContext.SaveChanges(TaxDemo.Model.ApiDbItem)')
+- [IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext')
+  - [GetUserHash(username,password)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-GetUserHash-System-String,System-String- 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext.GetUserHash(System.String,System.String)')
+  - [Login(user,password)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-Login-System-String,System-String- 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext.Login(System.String,System.String)')
+  - [Register(username,password,address1,address2,city,zip)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-Register-Auth-Model-AuthModel,System-String- 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext.Register(TaxDemo.Model.AuthModel,System.String)')
+  - [UserExists(username)](#M-Auth-DataAccess-InterfaceContexts-IAuthContext-UserExists-System-String- 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext.UserExists(System.String)')
+- [IBaseDbContext](#T-Auth-DataAccess-InterfaceContexts-IBaseDbContext 'TaxDemo.DataAccess.InterfaceContexts.IBaseDbContext')
+  - [SaveChanges(item)](#M-Auth-DataAccess-InterfaceContexts-IBaseDbContext-SaveChanges-Auth-Model-TaxCalculationItemEvent- 'TaxDemo.DataAccess.InterfaceContexts.IBaseDbContext.SaveChanges(TaxDemo.Model.TaxCalculationItemEvent)')
+- [ICalculate](#T-Auth-Business-ICalculate 'TaxDemo.Business.ICalculate')
+- [ICalculateDbContext](#T-Auth-DataAccess-InterfaceContexts-ICalculateDbContext 'TaxDemo.DataAccess.InterfaceContexts.ICalculateDbContext')
+- [ICalculatorApiAccessor](#T-Auth-ApiDataAccess-ICalculatorApiAccessor 'TaxDemo.ApiDataAccess.ICalculatorApiAccessor')
+- [ITaxRates](#T-Auth-ApiDataAccess-ITaxRates 'TaxDemo.ApiDataAccess.ITaxRates')
+  - [GetOrderTaxRate(query,apiName,userHash)](#M-Auth-ApiDataAccess-ITaxRates-GetOrderTaxRate-System-String,System-String,System-Byte[]- 'TaxDemo.ApiDataAccess.ITaxRates.GetOrderTaxRate(System.String,System.String,System.Byte[])')
+- [ITaxServiceDbContext](#T-Auth-DataAccess-InterfaceContexts-ITaxServiceDbContext 'TaxDemo.DataAccess.InterfaceContexts.ITaxServiceDbContext')
+- [ITax\`1](#T-Auth-ApiDataAccess-ITax`1 'TaxDemo.ApiDataAccess.ITax`1')
+- [RatesRate](#T-Auth-Model-RatesRate 'TaxDemo.Model.RatesRate')
+- [SubRate](#T-Auth-Model-SubRate 'TaxDemo.Model.SubRate')
+- [SummayRates](#T-Auth-Model-SummayRates 'TaxDemo.Model.SummayRates')
+- [TaxCalculationItemEvent](#T-Auth-Model-TaxCalculationItemEvent 'TaxDemo.Model.TaxCalculationItemEvent')
+- [TaxItemEvent](#T-Auth-Model-TaxItemEvent 'TaxDemo.Model.TaxItemEvent')
+- [TaxRatesByZIPCodeAPIAccessor](#T-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor 'TaxDemo.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor')
+  - [#ctor(dbContext)](#M-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-#ctor-Auth-DataAccess-Contexts-DataContextApi,Auth-DataAccess-Contexts-DataContextTax- 'TaxDemo.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.#ctor(TaxDemo.DataAccess.Contexts.DataContextApi,TaxDemo.DataAccess.Contexts.DataContextTax)')
+  - [_base](#F-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-_base 'TaxDemo.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor._base')
+  - [GetOrderTaxRate(query,apiName,userHash)](#M-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-GetOrderTaxRate-System-String,System-String,System-Byte[]- 'TaxDemo.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetOrderTaxRate(System.String,System.String,System.Byte[])')
+  - [GetTaxInfo(action)](#M-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-GetTaxInfo-Auth-Model-RatesRate- 'TaxDemo.ApiDataAccess.TaxRatesByZIPCodeAPIAccessor.GetTaxInfo(TaxDemo.Model.RatesRate)')
+- [TaxRatesController](#T-Auth-Controllers-TaxRatesController 'TaxDemo.Controllers.TaxRatesController')
+  - [#ctor(t)](#M-Auth-Controllers-TaxRatesController-#ctor-Auth-DataAccess-InterfaceContexts-IAuthContext,Auth-ApiDataAccess-ITaxRates,Auth-DataAccess-InterfaceContexts-ITaxServiceDbContext,Microsoft-Extensions-Logging-ILogger{Auth-Controllers-TaxRatesController}- 'TaxDemo.Controllers.TaxRatesController.#ctor(TaxDemo.DataAccess.InterfaceContexts.IAuthContext,TaxDemo.ApiDataAccess.ITaxRates,TaxDemo.DataAccess.InterfaceContexts.ITaxServiceDbContext,Microsoft.Extensions.Logging.ILogger{TaxDemo.Controllers.TaxRatesController})')
+  - [Get(user,password)](#M-Auth-Controllers-TaxRatesController-Get-System-String,System-String- 'TaxDemo.Controllers.TaxRatesController.Get(System.String,System.String)')
+  - [GetQueriedTaxByFrequency(user,password)](#M-Auth-Controllers-TaxRatesController-GetQueriedTaxByFrequency-System-String,System-String,System-Decimal- 'TaxDemo.Controllers.TaxRatesController.GetQueriedTaxByFrequency(System.String,System.String,System.Decimal)')
+  - [GetTaxInfo(query,zip)](#M-Auth-Controllers-TaxRatesController-GetTaxInfo-System-String,System-String,System-String,System-String- 'TaxDemo.Controllers.TaxRatesController.GetTaxInfo(System.String,System.String,System.String,System.String)')
+  - [GetTaxInfoQuery(query,user,password)](#M-Auth-Controllers-TaxRatesController-GetTaxInfoQuery-System-String,System-String,System-String- 'TaxDemo.Controllers.TaxRatesController.GetTaxInfoQuery(System.String,System.String,System.String)')
+- [TaxServiceDbContext](#T-Auth-DataAccess-TaxServiceDbContext 'TaxDemo.DataAccess.TaxServiceDbContext')
+  - [Correction(id)](#M-Auth-DataAccess-TaxServiceDbContext-Correction-System-String- 'TaxDemo.DataAccess.TaxServiceDbContext.Correction(System.String)')
+  - [GetQueriedTaxByFrequency()](#M-Auth-DataAccess-TaxServiceDbContext-GetQueriedTaxByFrequency 'TaxDemo.DataAccess.TaxServiceDbContext.GetQueriedTaxByFrequency')
+  - [GetTaxItem()](#M-Auth-DataAccess-TaxServiceDbContext-GetTaxItem 'TaxDemo.DataAccess.TaxServiceDbContext.GetTaxItem')
+  - [GetTaxItems()](#M-Auth-DataAccess-TaxServiceDbContext-GetTaxItems 'TaxDemo.DataAccess.TaxServiceDbContext.GetTaxItems')
+  - [SaveChanges()](#M-Auth-DataAccess-TaxServiceDbContext-SaveChanges-Auth-Model-RatesRate- 'TaxDemo.DataAccess.TaxServiceDbContext.SaveChanges(TaxDemo.Model.RatesRate)')
 
 <a name='T-Auth-DataAccess-ApiDbContext'></a>
 ## ApiDbContext `type`
 
 ##### Namespace
 
-Auth.DataAccess
+TaxDemo.DataAccess
 
 ##### Summary
 
@@ -115,7 +115,7 @@ application as to abstract the access to Database
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| context | [Auth.DataAccess.Contexts.DataContextApi](#T-Auth-DataAccess-Contexts-DataContextApi 'Auth.DataAccess.Contexts.DataContextApi') |  |
+| context | [TaxDemo.DataAccess.Contexts.DataContextApi](#T-Auth-DataAccess-Contexts-DataContextApi 'TaxDemo.DataAccess.Contexts.DataContextApi') |  |
 
 <a name='M-Auth-DataAccess-ApiDbContext-GetApiKey-System-String,System-Byte[]-'></a>
 ### GetApiKey(apiName,compareHash) `method`
@@ -157,14 +157,14 @@ TODO this needs a maintainer service to assure when passwords are changed or use
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| apiName | [Auth.Model.ApiDbItem](#T-Auth-Model-ApiDbItem 'Auth.Model.ApiDbItem') |  |
+| apiName | [TaxDemo.Model.ApiDbItem](#T-Auth-Model-ApiDbItem 'TaxDemo.Model.ApiDbItem') |  |
 
 <a name='T-Auth-Model-ApiDbItem'></a>
 ## ApiDbItem `type`
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -175,7 +175,7 @@ Base APi DB element for data interactions
 
 ##### Namespace
 
-Auth.DataAccess
+TaxDemo.DataAccess
 
 <a name='M-Auth-DataAccess-AuthContext-GetUserHash-System-String,System-String-'></a>
 ### GetUserHash(username) `method`
@@ -209,7 +209,7 @@ Get User Hash for api key authorization
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| user | [Auth.Model.AuthModel](#T-Auth-Model-AuthModel 'Auth.Model.AuthModel') |  |
+| user | [TaxDemo.Model.AuthModel](#T-Auth-Model-AuthModel 'TaxDemo.Model.AuthModel') |  |
 | password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
 
 <a name='M-Auth-DataAccess-AuthContext-Update-Auth-Model-AuthModel,System-String,System-String-'></a>
@@ -227,7 +227,7 @@ TODO still need proper thought
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| userToUpdate | [Auth.Model.AuthModel](#T-Auth-Model-AuthModel 'Auth.Model.AuthModel') |  |
+| userToUpdate | [TaxDemo.Model.AuthModel](#T-Auth-Model-AuthModel 'TaxDemo.Model.AuthModel') |  |
 | username | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
 | password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
 
@@ -253,7 +253,7 @@ Find if the user is in Database
 
 ##### Namespace
 
-Auth.Controllers
+TaxDemo.Controllers
 
 ##### Summary
 
@@ -270,8 +270,8 @@ Constructor using IoC
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| repo | [Auth.DataAccess.InterfaceContexts.IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'Auth.DataAccess.InterfaceContexts.IAuthContext') |  |
-| config | [Auth.DataAccess.InterfaceContexts.IApiDbContext](#T-Auth-DataAccess-InterfaceContexts-IApiDbContext 'Auth.DataAccess.InterfaceContexts.IApiDbContext') |  |
+| repo | [TaxDemo.DataAccess.InterfaceContexts.IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext') |  |
+| config | [TaxDemo.DataAccess.InterfaceContexts.IApiDbContext](#T-Auth-DataAccess-InterfaceContexts-IApiDbContext 'TaxDemo.DataAccess.InterfaceContexts.IApiDbContext') |  |
 | logger | [Microsoft.Extensions.Configuration.IConfiguration](#T-Microsoft-Extensions-Configuration-IConfiguration 'Microsoft.Extensions.Configuration.IConfiguration') |  |
 
 <a name='M-Auth-Controllers-AuthController-Login-Auth-Model-AuthRegisterDto-'></a>
@@ -290,7 +290,7 @@ Standard login method using jwt tokens
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| user | [Auth.Model.AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'Auth.Model.AuthRegisterDto') |  |
+| user | [TaxDemo.Model.AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'TaxDemo.Model.AuthRegisterDto') |  |
 
 <a name='M-Auth-Controllers-AuthController-Register-Auth-Model-AuthRegisterDto-'></a>
 ### Register(newUser) `method`
@@ -307,7 +307,7 @@ Registration method
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| newUser | [Auth.Model.AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'Auth.Model.AuthRegisterDto') |  |
+| newUser | [TaxDemo.Model.AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'TaxDemo.Model.AuthRegisterDto') |  |
 
 <a name='M-Auth-Controllers-AuthController-SaveApi-System-String,System-String,System-String,System-String-'></a>
 ### SaveApi(apikey,apiName,authorized) `method`
@@ -345,14 +345,14 @@ providing a layer of protection against brute force attacks
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| user | [Auth.Model.AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'Auth.Model.AuthRegisterDto') |  |
+| user | [TaxDemo.Model.AuthRegisterDto](#T-Auth-Model-AuthRegisterDto 'TaxDemo.Model.AuthRegisterDto') |  |
 
 <a name='T-Auth-Model-AuthLevel'></a>
 ## AuthLevel `type`
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -364,7 +364,7 @@ given the level determines the privileges
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -376,7 +376,7 @@ to register users or login
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -387,7 +387,7 @@ Smaller dto as to not expose the hash fields to a user
 
 ##### Namespace
 
-Auth.Business
+TaxDemo.Business
 
 ##### Summary
 
@@ -408,7 +408,7 @@ This method uses the (combined tax rate) field from TaxJar
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| item | [Auth.Model.RatesRate](#T-Auth-Model-RatesRate 'Auth.Model.RatesRate') |  |
+| item | [TaxDemo.Model.RatesRate](#T-Auth-Model-RatesRate 'TaxDemo.Model.RatesRate') |  |
 | amount | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') |  |
 
 <a name='T-Auth-Controllers-CalculationsController'></a>
@@ -416,7 +416,7 @@ This method uses the (combined tax rate) field from TaxJar
 
 ##### Namespace
 
-Auth.Controllers
+TaxDemo.Controllers
 
 ##### Summary
 
@@ -434,7 +434,7 @@ Access To the TaxJar API
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| t | [Auth.DataAccess.InterfaceContexts.IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'Auth.DataAccess.InterfaceContexts.IAuthContext') |  |
+| t | [TaxDemo.DataAccess.InterfaceContexts.IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext') |  |
 
 <a name='M-Auth-Controllers-CalculationsController-Get-System-Decimal,System-String,System-String,System-String-'></a>
 ### Get(amount,zip,user,password) `method`
@@ -500,7 +500,7 @@ Endpoint to obtain all prior calculated orders
 
 ##### Namespace
 
-Auth.DataAccess
+TaxDemo.DataAccess
 
 ##### Summary
 
@@ -519,14 +519,14 @@ TODO Abstract db from controller in separate class
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| context | [Auth.DataAccess.Contexts.DataContextCalc](#T-Auth-DataAccess-Contexts-DataContextCalc 'Auth.DataAccess.Contexts.DataContextCalc') |  |
+| context | [TaxDemo.DataAccess.Contexts.DataContextCalc](#T-Auth-DataAccess-Contexts-DataContextCalc 'TaxDemo.DataAccess.Contexts.DataContextCalc') |  |
 
 <a name='T-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor'></a>
 ## CalculatorTaxTatesAPIAccessor `type`
 
 ##### Namespace
 
-Auth.ApiDataAccess
+TaxDemo.ApiDataAccess
 
 ##### Summary
 
@@ -543,7 +543,7 @@ Concrete implemnetation of the interface which also uses the Api access for auth
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| contex | [Auth.DataAccess.Contexts.DataContextApi](#T-Auth-DataAccess-Contexts-DataContextApi 'Auth.DataAccess.Contexts.DataContextApi') |  |
+| contex | [TaxDemo.DataAccess.Contexts.DataContextApi](#T-Auth-DataAccess-Contexts-DataContextApi 'TaxDemo.DataAccess.Contexts.DataContextApi') |  |
 
 <a name='M-Auth-ApiDataAccess-CalculatorTaxTatesAPIAccessor-GetOrderTaxRate-System-String,System-String,System-Byte[]-'></a>
 ### GetOrderTaxRate() `method`
@@ -571,7 +571,7 @@ TODO Dynamic tax info retrieval
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| action | [Auth.Model.RatesRate](#T-Auth-Model-RatesRate 'Auth.Model.RatesRate') |  |
+| action | [TaxDemo.Model.RatesRate](#T-Auth-Model-RatesRate 'TaxDemo.Model.RatesRate') |  |
 
 ##### Exceptions
 
@@ -584,7 +584,7 @@ TODO Dynamic tax info retrieval
 
 ##### Namespace
 
-Auth.DataAccess.Contexts
+TaxDemo.DataAccess.Contexts
 
 ##### Summary
 
@@ -595,7 +595,7 @@ Calculator Interface implements Save To Sqlite DB
 
 ##### Namespace
 
-Auth.DataAccess.Contexts
+TaxDemo.DataAccess.Contexts
 
 ##### Summary
 
@@ -776,7 +776,7 @@ Set Header Overload
 
 ##### Namespace
 
-Auth.Extention
+TaxDemo.Extention
 
 ##### Summary
 
@@ -787,7 +787,7 @@ Extenstion method  fir the Http response to return the error messages
 
 ##### Namespace
 
-Auth.DataAccess.InterfaceContexts
+TaxDemo.DataAccess.InterfaceContexts
 
 ##### Summary
 
@@ -828,7 +828,7 @@ the apikeyitem model
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| item | [Auth.Model.ApiDbItem](#T-Auth-Model-ApiDbItem 'Auth.Model.ApiDbItem') |  |
+| item | [TaxDemo.Model.ApiDbItem](#T-Auth-Model-ApiDbItem 'TaxDemo.Model.ApiDbItem') |  |
 
 ##### Generic Types
 
@@ -841,7 +841,7 @@ the apikeyitem model
 
 ##### Namespace
 
-Auth.DataAccess.InterfaceContexts
+TaxDemo.DataAccess.InterfaceContexts
 
 ##### Summary
 
@@ -899,7 +899,7 @@ Register User Interface
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| username | [Auth.Model.AuthModel](#T-Auth-Model-AuthModel 'Auth.Model.AuthModel') |  |
+| username | [TaxDemo.Model.AuthModel](#T-Auth-Model-AuthModel 'TaxDemo.Model.AuthModel') |  |
 | password | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
 
 <a name='M-Auth-DataAccess-InterfaceContexts-IAuthContext-UserExists-System-String-'></a>
@@ -924,7 +924,7 @@ User Lookup by Username
 
 ##### Namespace
 
-Auth.DataAccess.InterfaceContexts
+TaxDemo.DataAccess.InterfaceContexts
 
 ##### Summary
 
@@ -945,7 +945,7 @@ This takes in the Model and saves to the Database in question        ///
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| item | [Auth.Model.TaxCalculationItemEvent](#T-Auth-Model-TaxCalculationItemEvent 'Auth.Model.TaxCalculationItemEvent') |  |
+| item | [TaxDemo.Model.TaxCalculationItemEvent](#T-Auth-Model-TaxCalculationItemEvent 'TaxDemo.Model.TaxCalculationItemEvent') |  |
 
 ##### Generic Types
 
@@ -958,7 +958,7 @@ This takes in the Model and saves to the Database in question        ///
 
 ##### Namespace
 
-Auth.Business
+TaxDemo.Business
 
 ##### Summary
 
@@ -969,7 +969,7 @@ The business logic interface
 
 ##### Namespace
 
-Auth.DataAccess.InterfaceContexts
+TaxDemo.DataAccess.InterfaceContexts
 
 ##### Summary
 
@@ -980,7 +980,7 @@ Calculator class interface
 
 ##### Namespace
 
-Auth.ApiDataAccess
+TaxDemo.ApiDataAccess
 
 ##### Summary
 
@@ -992,7 +992,7 @@ Icalc rates access to the TaxRates over the Get Order Function
 
 ##### Namespace
 
-Auth.ApiDataAccess
+TaxDemo.ApiDataAccess
 
 ##### Summary
 
@@ -1023,7 +1023,7 @@ Interface for all tax rate endpoints
 
 ##### Namespace
 
-Auth.DataAccess.InterfaceContexts
+TaxDemo.DataAccess.InterfaceContexts
 
 ##### Summary
 
@@ -1034,7 +1034,7 @@ The tax item is the configuration of Ibase Context
 
 ##### Namespace
 
-Auth.ApiDataAccess
+TaxDemo.ApiDataAccess
 
 ##### Summary
 
@@ -1051,7 +1051,7 @@ Serves as the extenstion for the memento pattern
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -1062,7 +1062,7 @@ Rates is the wrapper for the rate class so that JSON can serialize and deseriali
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -1074,7 +1074,7 @@ this will carry oll the information needed
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -1085,7 +1085,7 @@ Has not been implemented yet but will hold all the summary elements returned for
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -1097,7 +1097,7 @@ calculated results from the api calls
 
 ##### Namespace
 
-Auth.Model
+TaxDemo.Model
 
 ##### Summary
 
@@ -1109,7 +1109,7 @@ statistical analysis.
 
 ##### Namespace
 
-Auth.ApiDataAccess
+TaxDemo.ApiDataAccess
 
 ##### Summary
 
@@ -1128,7 +1128,7 @@ Database context injection according to design
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dbContext | [Auth.DataAccess.Contexts.DataContextApi](#T-Auth-DataAccess-Contexts-DataContextApi 'Auth.DataAccess.Contexts.DataContextApi') |  |
+| dbContext | [TaxDemo.DataAccess.Contexts.DataContextApi](#T-Auth-DataAccess-Contexts-DataContextApi 'TaxDemo.DataAccess.Contexts.DataContextApi') |  |
 
 <a name='F-Auth-ApiDataAccess-TaxRatesByZIPCodeAPIAccessor-_base'></a>
 ### _base `constants`
@@ -1167,7 +1167,7 @@ TODO resolve any requests to the Database on the stored rates regions types
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| action | [Auth.Model.RatesRate](#T-Auth-Model-RatesRate 'Auth.Model.RatesRate') |  |
+| action | [TaxDemo.Model.RatesRate](#T-Auth-Model-RatesRate 'TaxDemo.Model.RatesRate') |  |
 
 ##### Exceptions
 
@@ -1180,7 +1180,7 @@ TODO resolve any requests to the Database on the stored rates regions types
 
 ##### Namespace
 
-Auth.Controllers
+TaxDemo.Controllers
 
 ##### Summary
 
@@ -1197,7 +1197,7 @@ Access To the TaxJar API
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| t | [Auth.DataAccess.InterfaceContexts.IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'Auth.DataAccess.InterfaceContexts.IAuthContext') |  |
+| t | [TaxDemo.DataAccess.InterfaceContexts.IAuthContext](#T-Auth-DataAccess-InterfaceContexts-IAuthContext 'TaxDemo.DataAccess.InterfaceContexts.IAuthContext') |  |
 
 <a name='M-Auth-Controllers-TaxRatesController-Get-System-String,System-String-'></a>
 ### Get(user,password) `method`
@@ -1277,7 +1277,7 @@ Get Tax info for region of interest
 
 ##### Namespace
 
-Auth.DataAccess
+TaxDemo.DataAccess
 
 ##### Summary
 

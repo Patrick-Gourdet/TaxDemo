@@ -8,13 +8,13 @@ using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using Auth.DataAccess;
-using Auth.DataAccess.Contexts;
-using Auth.Model;
+using TaxDemo.DataAccess;
+using TaxDemo.DataAccess.Contexts;
+using TaxDemo.Model;
 using Newtonsoft.Json;
 using TaxJar.Microservice.DataAccess.ApiHelper;
 
-namespace Auth.ApiDataAccess
+namespace TaxDemo.ApiDataAccess
 {
     /// <summary>
     /// Main calculation method for all tax calculations 
