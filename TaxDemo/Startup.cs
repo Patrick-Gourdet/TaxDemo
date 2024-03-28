@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Net;
-using System.Reflection;
 using System.Text;
 using TaxDemo.ApiDataAccess;
 using TaxDemo.Business;
@@ -21,7 +20,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace TaxDemo
@@ -178,13 +176,6 @@ namespace TaxDemo
             SwaggerUIOptions h = new SwaggerUIOptions();
             app.UseAuthorization();
             app.UseStaticFiles();
-            //#region Swagger
-
-
-            //#endregion
-
-            //app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
